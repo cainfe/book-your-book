@@ -1,10 +1,20 @@
+/*
+Proposed Color Scheme
+#f7f7f7
+#3b0944
+#5f1854
+#1abb9c
+*/
+
 html {
     font-size: 10px;
-    background-color: #006400;
+    background-color: #F7F7F7;
+    color: #3B0944;
 }
 
 #index-pg-hdr {
 	font-size: 60px;
+    font-family: 'Gentium Book Basic', serif;
 	text-align: center;
 
 	margin: 0;
