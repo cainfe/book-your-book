@@ -1,5 +1,22 @@
 html {
     font-size: 10px;
-    font-family: 'Piazzolla', serif;
     background-color: #006400;
+}
+
+#index-pg-hdr {
+	font-size: 60px;
+	text-align: center;
+
+	margin: 0;
+	padding: 40px 0;
+	/* text-shadow: 3px 3px 1px black; */
+}
+
+.link-no-display {
+	color: inherit;
+	text-decoration: inherit;
+}
+
+.link-no-change:visited {
+	color: blue;
 }
