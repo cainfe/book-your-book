@@ -6,15 +6,22 @@ Proposed Color Scheme
 #1abb9c
 */
 
+:root {
+	--primaryColor: #f7f7f7;
+	--secondaryColor: #3b0944;
+	--thirdColor: #5f1854;
+	--fourthColor: #1abb9c;
+}
+
 html {
     font-size: 10px;
-    background-color: #F7F7F7;
-    color: #3B0944;
+    background-color: var(--primaryColor);
+    color: var(--secondaryColor);
 }
 
 .container {
 	margin-top: -20px;
-	background: #1abb9c;
+	background: var(--fourthColor);
 	padding: 30px;
 	box-shadow: 0 0 8px rgba(0,0,0,0.1);
 }
@@ -48,7 +55,7 @@ html {
 	text-align: center;
 	margin: 0;
 	padding: 10px 0 0 0;
-	border-bottom: 1px solid #5f1854;
+	border-bottom: 1px solid var(--secondaryColor);
 }
 
 /* -------------------- Log in / sign up form --------------------------- */
@@ -88,13 +95,13 @@ html {
 	height: 100%;
 	width: 100%;
 	font-size: 16px;
-	border: 2px solid #5f1854;
+	border: 2px solid var(--thirdColor);
 	border-radius: 5px;
 }
 
 .data-input:focus {
 	outline: none;
-	border-color: #f7f7f7;
+	border-color: var(--primaryColor);
 }
 
 .btn-submit {
@@ -104,7 +111,7 @@ html {
 
 .btn-submit:active{
 	outline: none;
-	border-color: #5f1854;
+	border-color: var(--thirdColor);
 }
 
 #login-signup-link {
