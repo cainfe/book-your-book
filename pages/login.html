@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="https://fonts.googleapis.com/css2?family=Gentium+Book+Basic&display=swap" rel="stylesheet">
         <link rel = "stylesheet"  href="../styles/style.css">
-        <title>Book your Book</title>
+        <title>Book Your Book | Login</title>
     </head>
 
     <body>
@@ -13,18 +13,19 @@
 		<div class="container" id="login-container">
 			<h1 id="smaller-header"><a class="link-no-display" href="../index.html">Book Your Book</a></h1>
             <h2>LOGIN FORM</form></h3>
-			<form action="#">
+			<form action="#" id="login-form">
 				<div class="login-data">
 					<label>Username</label>
-					<input type="text" class="data-input" id="login-username-field" required>
+					<input type="text" name="username" class="data-input" id="login-username-field" required>
 				</div>
 				<div class="login-data">
 					<label>Password</label>
-					<input type="password" class="data-input" id="login-password-field" required>
+					<input type="password" name="password" class="data-input" id="login-password-field" required>
 				</div>
-				<button type="submit" class="btn-submit btn-submit-login">Login</button>
+				<button type="submit" id="btn-submit-login" class="btn-submit btn-submit-login">Login</button>
 				<p id="login-signup-link">Not a member? Signing up is easy! If you are interested click <a href="join.html">here</a> to join.</p>
 			</form>
+            <script src="../scripts/login.js"></script>
 		</div>
     </body>
 </html>
