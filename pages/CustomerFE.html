@@ -13,32 +13,30 @@
         <!-- Header and homepage link-->
         <h1 id="index-pg-hdr"><a class="link-no-display" href="../index.html">Book Your Book</a></h1>
 
-        <div id="container">
-            <div class="create">Create Account</div>
+        <!--Search bar-->
+        <div class="bar">
+            <input type="text" placeholder="Search..">
         </div>
+        <p></p>
+        
+        <!--Browse for books-->
+        <div class="bbar">
+            <a href="#title">Title</a>
+            <a href="#publication">Publication</a>
+            <a href="#category">Category</a>
+            <a href="#reviews">Reviews</a>
+        </div>
+        <p></p>
 
-        <form>
-            <p>
-                <label>First Name</label>
-                <input type="text" id="fname" name="fname">
-            </p>
-            <p>
-                <label>Last Name</label>
-                <input type="text" id="lname" name="lname">               
-            </p>
-            <p>
-                <label>Email</label>
-                <input type="text" id="email" name="email">
-            </p>
-            <p>
-                <label>Password</label>
-                <input type="text" id="password" name="password">
-            </p>
-            <p>
-                <input type="button" id="submit" value="Create Account">
-                <input type="button" id="cancel" value="Cancel">
-            </p>
-        </form>
+
+        <div class="container" id="ccontainer">
+            <div class="cbutton Skeywords">Search using keywords</div>
+            <div class="cbutton browse">Browse for books</div>
+            <div class="cbutton addbook">Add book to order</div>
+            <div class="cbutton change">Change order</div>
+            <div class="cbutton place">Place order</div>
+            <div class="cbutton view">View order</div>
+        </div>
     </body>
 </html>
 
