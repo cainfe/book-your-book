@@ -9,10 +9,13 @@
         <title>Book your Book | Admin</title>
     </head>
 
-
     <body>
+        <!-- Navigation bar -->
+        <?php $isIndex = FALSE; ?>
+        <?php include '../scripts/popNavbar.php' ?>
+
         <!-- Header and homepage link-->
-        <h1 id="index-pg-hdr"><a class="link-no-display" href="../index.html">Book Your Book</a></h1>
+        <h1 id="index-pg-hdr"><a class="link-no-display" href="../index.php">Book Your Book</a></h1>
 
         <div class ="container" id="acontainer">
             <div class="abutton VCustomer">Customers</div>

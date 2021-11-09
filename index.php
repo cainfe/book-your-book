@@ -9,10 +9,11 @@
     </head>
 
     <body>
-        <!-- Header and homepage link-->
-        <h1 id="index-pg-hdr"><a class="link-no-display" href="index.html">Book Your Book</a></h1>
+        <!-- Navigation bar -->
+        <?php $isIndex = TRUE; ?>
+        <?php include 'scripts/popNavbar.php' ?>
 
-        <button onclick="window.location.href='pages/AdminFE.html';">Admin</button>
-        <button onclick="window.location.href='pages/CustomerFE.html';">Customer</button>
+        <!-- Header and homepage link-->
+        <h1 id="index-pg-hdr"><a class="link-no-display" href="index.php">Book Your Book</a></h1>
     </body>
 </html>

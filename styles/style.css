@@ -58,6 +58,28 @@ html {
 	border-bottom: 1px solid var(--secondaryColor);
 }
 
+/* ------------------------ Navigation bar ------------------------------ */
+.nav-bar {
+	background-color: var(--thirdColor);
+	overflow: hidden;
+}
+
+.navbar-link {
+	display: block;
+	font-size: 12px;
+	float: left;
+	color: var(--primaryColor);
+	background-color: var(--secondaryColor);
+	margin: 0 1px 0 0;
+	padding: 8px;
+}
+
+.navbar-user {
+	float: right;
+	margin: 0 0 0 1px;
+}
+/* --------------------- End Navigation bar ------------------------------ */
+
 /* -------------------- Log in / sign up form --------------------------- */
 #login-container {
 	position: absolute;

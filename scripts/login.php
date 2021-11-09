@@ -32,6 +32,6 @@
         // Close database connection and go on to homepage for successful 
         // login
         $dbConn = null;
-        header('Location: ../index.html');
+        header('Location: ../index.php');
     }
 ?>
