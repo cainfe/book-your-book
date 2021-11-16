@@ -30,6 +30,10 @@ html {
 	display: none;
 }
 
+.back-button {
+	right: 10px;
+}
+
 .link-no-display {
 	color: inherit;
 	text-decoration: inherit;
@@ -80,21 +84,19 @@ html {
 }
 /* --------------------- End Navigation bar ------------------------------ */
 
-/* -------------------- Log in / sign up form --------------------------- */
-#login-container {
+/* ---------------------------- Forms ------------------------------------ */
+.form-container {
 	position: absolute;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%,-50%);
-	width: 410px;
 	text-align: center;
 }
 
-#signup-form {
-	padding: 0 20px 20px 10px;
-}
-
-#login-container .login-close-btn {
+.form-close-btn {
+	background:none;
+	border:none;
+	outline:none;
 	position: absolute;
 	right: 20px;
 	top: 15px;
@@ -102,18 +104,19 @@ html {
 	cursor: pointer;
 }
 
-#login-container .login-data {
+.form-container .form-data {
 	height: 45px;
 	width: 100%;
 	margin: 40px 0;
+	width: 420px;
 	text-align: left;
 }
 
-.login-data label {
+.form-data label {
 	font-size: 18px;
 }
 
-.login-data input {
+.form-data input {
 	height: 100%;
 	width: 100%;
 	font-size: 16px;
@@ -121,19 +124,26 @@ html {
 	border-radius: 5px;
 }
 
+.form-submit-btn {
+	padding: 10px 21px;
+	margin: 10px 0 0 0;
+}
+
+.form-submit-btn:active{
+	outline: none;
+	border-color: var(--thirdColor);
+}
+
 .data-input:focus {
 	outline: none;
 	border-color: var(--primaryColor);
 }
 
-.btn-submit {
-	padding: 10px 21px;
-	margin: 10px 0 0 0;
-}
+/* -------------------------- End Forms ---------------------------------- */
 
-.btn-submit:active{
-	outline: none;
-	border-color: var(--thirdColor);
+/* -------------------- Log in / sign up form ---------------------------- */
+#signup-form {
+	padding: 0 20px 20px 10px;
 }
 
 #login-signup-link {
