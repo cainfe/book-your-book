@@ -37,6 +37,8 @@
         </div>
         <p></p>
 
+
+
         <table id="btable">
             <tr>
                 <th>Title</th>
@@ -44,16 +46,28 @@
                 <th>Category</th>
                 <th>Reviews</th>
             </tr>
+            <tr>
+                <td>Dune</td>
+                <td>1956-6-1</td>
+                <td>Science Fiction</td>
+                <td>4.16</td>
+            </tr>
         </table>
+        <p></p>
 
-        <div class="container" id="ccontainer">
+
+
+
+
+
+<!--         <div class="container" id="ccontainer">
             <div class="cbutton Skeywords">Search using keywords</div>
             <div class="cbutton browse">Browse for books</div>
             <div class="cbutton addbook">Add book to order</div>
             <div class="cbutton change">Change order</div>
             <div class="cbutton place">Place order</div>
             <div class="cbutton view">View order</div>
-        </div>
+        </div> -->
     </body>
 </html>
 

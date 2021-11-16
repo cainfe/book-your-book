@@ -13,6 +13,7 @@
         if(!empty($_POST["bsearch"])){
             $search = $_POST["bsearch"];
 
+            //Need to add category to query
             $sql = "SELECT * FROM Books WHERE title OR publicationDate
                     OR reviews LIKE '%$search%'";
 
