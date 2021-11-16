@@ -20,13 +20,13 @@
         <!-- Testing -->
         <?php 
             if (isset($_SESSION['isAdmin']) AND $_SESSION['isAdmin']) {
-                echo("<button onclick=\"toggleForm('add-book')\">Add book</button>");
+                echo("<button onclick=\"toggleForm('add-book', 1)\">Add book</button>");
             }
         ?>
 
         <!-- popup form - add book -->
         <div class="popup-form container form-container" id="add-book">
-			<button class="form-close-btn" onclick="toggleForm('add-book')">x</button>
+			<button class="form-close-btn" onclick="toggleForm('add-book', 0)">x</button>
             <h2 class="form-title">ADD BOOK</form></h2>
 			<form id="login-form" action="../scripts/addBook.php" method="post">
 				<div class="form-data">
@@ -44,10 +44,10 @@
 
         
         <script>
-            function toggleForm(asdf) 
+            function toggleForm(form, show) 
             {
-                var x = document.getElementById(asdf);
-                if (x.style.display === "none") {
+                var x = document.getElementById(form);
+                if (show) {
                     x.style.display = "block";
                 } else {
                     x.style.display = "none";
