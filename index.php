@@ -15,5 +15,27 @@
 
         <!-- Header and homepage link-->
         <h1 id="index-pg-hdr"><a class="link-no-display" href="index.php">Book Your Book</a></h1>
+
+
+        <!-- Testing -->
+        <button>Add book</button>
+
+        <!-- popup form - add book -->
+        <div class="popup-form container form-container" id="add-book">
+			<button class="form-close-btn">x</button>
+            <h2 class="form-title">ADD BOOK</form></h2>
+			<form id="login-form" action="../scripts/addBook.php" method="post">
+				<div class="form-data">
+					<label>Title</label>
+					<input type="text" name="title" class="data-input" id="add-book-title-field" required>
+				</div>
+				<div class="form-data">
+					<label></label>
+					<input type="text" name="" class="data-input" id="add-book--field" required>
+				</div>
+
+				<button type="submit" id="btn-submit-book" class="btn-submit btn-submit-book">Add</button>
+			</form>
+		</div>
     </body>
 </html>
