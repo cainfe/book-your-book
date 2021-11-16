@@ -13,23 +13,33 @@
     }
     
     if (!$isIndex) {
-        echo("
-        <div class=\"nav-bar\">
-            <a class=\"link-no-display navbar-link\" href=\"../index.php\">Home</a>
-            <a class=\"link-no-display navbar-link\" href=\"CustomerFE.php\">Customer</a>
-            <a class=\"link-no-display navbar-link\" href=\"AdminFE.php\">Admin</a>
-            <a class=\"link-no-display navbar-link navbar-user\" name=\"navbar-user-link\" href=\"login.html\">$username</a>
-        </div>
-        ");
+        $string = "<div class=\"nav-bar\">";
+        $string .= "    <a class=\"link-no-display navbar-link\" href=\"../index.php\">Home</a>";
+        $string .= "    <a class=\"link-no-display navbar-link\" href=\"CustomerFE.php\">Customer</a>";
+        if (isset($_SESSION['isAdmin']) AND $_SESSION['isAdmin']) {
+            $string .= "<a class=\"link-no-display navbar-link\" href=\"AdminFE.php\">Admin</a>";
+        }
+        if ($username == "Login") {
+            $string .= "    <a class=\"link-no-display navbar-link navbar-user\" name=\"navbar-user-link\" href=\"../scripts/login.php\">$username</a>";
+        } else {
+            $string .= "    <a class=\"link-no-display navbar-link navbar-user\" name=\"navbar-user-link\">$username</a>";
+        }
+        $string .= "</div>";
+        echo($string);
     }
     else {
-        echo("
-        <div class=\"nav-bar\">
-            <a class=\"link-no-display navbar-link\" href=\"index.php\">Home</a>
-            <a class=\"link-no-display navbar-link\" href=\"pages/CustomerFE.php\">Customer</a>
-            <a class=\"link-no-display navbar-link\" href=\"pages/AdminFE.php\">Admin</a>
-            <a class=\"link-no-display navbar-link navbar-user\" name=\"navbar-user-link\">$username</a>
-        </div>
-        ");
+        $string = "<div class=\"nav-bar\">";
+        $string .= "    <a class=\"link-no-display navbar-link\" href=\"index.php\">Home</a>";
+        $string .= "    <a class=\"link-no-display navbar-link\" href=\"pages/CustomerFE.php\">Customer</a>";
+        if (isset($_SESSION['isAdmin']) AND $_SESSION['isAdmin']) {
+            $string .= "<a class=\"link-no-display navbar-link\" href=\"pages/AdminFE.php\">Admin</a>";
+        }
+        if ($username == "Login") {
+            $string .= "    <a class=\"link-no-display navbar-link navbar-user\" name=\"navbar-user-link\" href=\"../scripts/login.php\">$username</a>";
+        } else {
+            $string .= "    <a class=\"link-no-display navbar-link navbar-user\" name=\"navbar-user-link\">$username</a>";
+        }
+        $string .= "</div>";
+        echo($string);
     }
 ?>
