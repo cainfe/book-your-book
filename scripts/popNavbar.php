@@ -28,7 +28,7 @@
             <a class=\"link-no-display navbar-link\" href=\"index.php\">Home</a>
             <a class=\"link-no-display navbar-link\" href=\"pages/CustomerFE.php\">Customer</a>
             <a class=\"link-no-display navbar-link\" href=\"pages/AdminFE.php\">Admin</a>
-            <a class=\"link-no-display navbar-link navbar-user\" name=\"navbar-user-link\" href=\"pages/login.html\">$username</a>
+            <a class=\"link-no-display navbar-link navbar-user\" name=\"navbar-user-link\">$username</a>
         </div>
         ");
     }

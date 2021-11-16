@@ -62,7 +62,7 @@ html {
 	border-bottom: 1px solid var(--secondaryColor);
 }
 
-/* ------------------------ Navigation bar ------------------------------ */
+/* ------------------- Navigation bar ------------------------ */
 .nav-bar {
 	background-color: var(--thirdColor);
 	overflow: hidden;
@@ -82,9 +82,9 @@ html {
 	float: right;
 	margin: 0 0 0 1px;
 }
-/* --------------------- End Navigation bar ------------------------------ */
+/* --------------- End Navigation bar ------------------------ */
 
-/* ---------------------------- Forms ------------------------------------ */
+/* ---------------------- Forms ------------------------------ */
 .form-container {
 	position: absolute;
 	top: 50%;
@@ -139,9 +139,13 @@ html {
 	border-color: var(--primaryColor);
 }
 
-/* -------------------------- End Forms ---------------------------------- */
+.popup-form {
+	display: none;
+}
 
-/* -------------------- Log in / sign up form ---------------------------- */
+/* -------------------- End Forms ---------------------------- */
+
+/* -------------- Log in / sign up form ---------------------- */
 #signup-form {
 	padding: 0 20px 20px 10px;
 }
@@ -153,4 +157,4 @@ html {
 #login-signup-link a:visited {
 	color: blue;
 }
-/* ----------------- End log in / sign up form ------------------------- */
+/* ------------- End log in / sign up form ------------------- */

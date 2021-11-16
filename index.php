@@ -18,11 +18,15 @@
 
 
         <!-- Testing -->
-        <button>Add book</button>
+        <?php 
+            if (isset($_SESSION['isAdmin']) AND $_SESSION['isAdmin']) {
+                echo("<button onclick=\"toggleForm('add-book')\">Add book</button>");
+            }
+        ?>
 
         <!-- popup form - add book -->
         <div class="popup-form container form-container" id="add-book">
-			<button class="form-close-btn">x</button>
+			<button class="form-close-btn" onclick="toggleForm('add-book')">x</button>
             <h2 class="form-title">ADD BOOK</form></h2>
 			<form id="login-form" action="../scripts/addBook.php" method="post">
 				<div class="form-data">
@@ -34,8 +38,21 @@
 					<input type="text" name="" class="data-input" id="add-book--field" required>
 				</div>
 
-				<button type="submit" id="btn-submit-book" class="btn-submit btn-submit-book">Add</button>
+				<button type="submit" id="btn-submit-book" class="form-submit-btn btn-submit-book">Add</button>
 			</form>
 		</div>
+
+        
+        <script>
+            function toggleForm(asdf) 
+            {
+                var x = document.getElementById(asdf);
+                if (x.style.display === "none") {
+                    x.style.display = "block";
+                } else {
+                    x.style.display = "none";
+                }
+            }
+        </script>
     </body>
 </html>
