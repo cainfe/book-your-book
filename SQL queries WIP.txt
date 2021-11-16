@@ -1,0 +1,53 @@
+Admin pull up Customer info
+SELECT Customers.customerID, fName, lName, ContactPhone.phone, ContactAddress.address, ContactEmail.email 
+FROM (((Customers
+INNER JOIN ContactPhone ON Customers.ContactID = ContactPhone.ContactID)
+INNER JOIN ContactEmail ON Customers.ContactID = ContactEmail.ContactID)
+INNER JOIN ContactAddress ON Customers.ContactID = ContactAddress.ContactID);
+
+
+Admin pull up Author info
+SELECT fName, lName, gender, birthDate, ContactPhone.phone, ContactAddress.address, ContactEmail.email 
+FROM (((Authors
+INNER JOIN ContactPhone ON Authors.ContactID = ContactPhone.ContactID)
+INNER JOIN ContactEmail ON Authors.ContactID = ContactEmail.ContactID)
+INNER JOIN ContactAddress ON Authors.ContactID = ContactAddress.ContactID);
+
+Admin pull up Book info
+SELECT title, publicationDate, price, suppliedBy, reviews, Authors.fName, Authors.lName, Suppliers.name
+FROM (((Books
+INNER JOIN BookAuthors ON Books.ISBN = BookAuthors.bookID)
+INNER JOIN Authors ON BookAuthors.authorID = Authors.authorID)
+INNER JOIN Suppliers ON Books.suppliedBy = Suppliers.supplierID);
+
+Customer pulls up  Book info 
+SELECT title, publicationDate, price, reviews, Authors.fName, Authors.lName
+FROM ((Books
+INNER JOIN BookAuthors ON Books.ISBN = BookAuthors.bookID)
+INNER JOIN Authors ON BookAuthors.authorID = Authors.authorID);
+
+Admin pull up suppliers 
+
+SELECT fName, lName, email, workNumber, cellNumber, Suppliers.name
+FROM SupplierReps
+INNER JOIN Suppliers ON SupplierReps.worksFor = SupplierID;
+
+Admin pull up orders
+
+SELECT orderID, date, value, OrderItems.itemPrice, Books.ISBN, Books.title, ContactEmail.email, Customers.fName, Customers.lName
+FROM ((((Orders
+INNER JOIN OrderItems ON Orders.orderID = OrderItems.orderID)
+INNER JOIN Books ON OrderItems.bookID = Books.ISBN)
+INNER JOIN Customers ON Customers.CustomerID = Orders.CustomerID)
+INNER JOIN ContactEmail ON Customers.ContactID = ContactEmail.ContactID);
+
+Admin Delete customer
+
+DELETE FROM Customers WHERE fName = '' AND lName = ''
+
+
+
+
+
+
+
