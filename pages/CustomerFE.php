@@ -18,9 +18,14 @@
         <h1 id="index-pg-hdr"><a class="link-no-display" href="../index.php">Book Your Book</a></h1>
 
         <!--Search bar-->
-        <div class="bar">
-            <input type="text" placeholder="Search..">
-        </div>
+        <form action="" method="post" class="bar">
+            <input type="text" id="search" placeholder="Search..">
+            <button type="submit" name="submit">Search</button>
+        </form>
+        
+        <!-- <div class="bar">
+            <input type="text" id="search" placeholder="Search..">
+        </div> -->
         <p></p>
         
         <!--Browse for books-->
@@ -32,6 +37,14 @@
         </div>
         <p></p>
 
+        <table id="btable">
+            <tr>
+                <th>Title</th>
+                <th>Publication</th>
+                <th>Category</th>
+                <th>Reviews</th>
+            </tr>
+        </table>
 
         <div class="container" id="ccontainer">
             <div class="cbutton Skeywords">Search using keywords</div>

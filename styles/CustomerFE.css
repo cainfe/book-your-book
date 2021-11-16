@@ -54,19 +54,57 @@
 }
 
 /*Search bar*/
+/* .searchcontainer
+{
+    width: 70%;
+    height: 30%;
+}
+ */
 .bar
 {
     overflow: hidden;
-    background-color: darkblue;
+    /*background-color: darkblue;*/
 }
 
 .bar input[type=text]
 {
     float: right;
     font-size: 25px;
-    width: 98.9%;
+    width: 30%;
 }
 
+
+/*Table*/
+#btable
+{
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#btable th
+{
+    font-size: 25px;
+    padding: 12px;
+    text-align: left;
+    background-color: rgb(116, 226, 230);
+    color: black;
+}
+
+#btable td, #btable th
+{
+    padding: 8px;
+    border: 1px darkblue;
+}
+
+#btable tr:nth-child(odd)
+{
+    background-color: #f2f2f2;
+}
+
+#btable tr:hover
+{
+    background-color: #ddd;
+}
 
 /*Browse bar*/
 .bbar
