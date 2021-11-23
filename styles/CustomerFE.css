@@ -96,7 +96,7 @@
     border: 1px darkblue;
 }
 
-#btable tr:nth-child(odd)
+#btable tr:nth-child(even)
 {
     background-color: #f2f2f2;
 }
