@@ -26,6 +26,16 @@ html {
 	box-shadow: 0 0 8px rgba(0,0,0,0.1);
 }
 
+button {
+	background-color: var(--fourthColor);
+	border-radius: 5px;
+}
+
+button:active{
+	outline: none;
+	border-color: var(--thirdColor);
+}
+
 .user-sensitive {
 	display: none;
 }
@@ -139,7 +149,6 @@ html {
 
 .form-submit-btn:active{
 	outline: none;
-	border-color: var(--thirdColor);
 }
 
 .data-input:focus {
