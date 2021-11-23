@@ -28,7 +28,7 @@
         <div class="opup-form container form-container" id="add-book">
 			<button class="form-close-btn" onclick="toggleForm('add-book', 0)">x</button>
             <h2 class="form-title">ADD BOOK</form></h2>
-			<form id="login-form" action="../scripts/addBook.php" method="post">
+			<form id="login-form" action="scripts/addBook.php" method="post">
 				<div class="form-data">
 					<label>ISBN</label>
 					<input type="text" name="isbn" class="data-input" id="add-book-isbn-field" required>
@@ -65,7 +65,7 @@
                         foreach($result as $row) {
                             $supplierID = $row['supplierID'];
                             $name = $row['name'];
-                            echo("<option value=\"$authorID\">$name</option>");
+                            echo("<option value=\"$supplierID\">$name</option>");
                         }
                         ?>
                     </select>
