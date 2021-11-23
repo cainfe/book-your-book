@@ -10,5 +10,12 @@
     // Connect to the database
     $dbConn = new PDO('sqlite:../Data.db');
 
-    $result = $dbConn->query("");
+    //Check if we need $result here when site is working. Also check if we need % before and after variables.
+    $result = $dbConn->query("INSERT INTO Books(ISBN, title, publicationDate, price, suppliedBy, reviews) 
+    VALUES($isbn, $title, $publicationDate, $price, $suppliedby, $reviews;");
+
+    $authorID =$dbConn->query("SELECT authorID FROM Authors WHERE fName == %$author%; ");
+
+   $result = $dbConn->query("INSERT INTO BookAuthors(authorID, bookID)
+    VALUES(%$authorID%,%$isbn%)");
 ?>
