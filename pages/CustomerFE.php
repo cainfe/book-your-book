@@ -34,10 +34,19 @@
             <a href="#publication">Publication</a>
             <a href="#category">Category</a>
             <a href="#reviews">Reviews</a>
+            <!-- <a>Add</a> -->
         </div>
         <p></p>
 
 
+        <!--addbook button-->
+        <script>
+            function myalert(){
+                if (window.confirm("Book has been succefully added. Go to cart.")){
+                    window.open("Order.html");
+                }
+            }
+        </script>
 
         <table id="btable">
             <tr>
@@ -45,29 +54,21 @@
                 <th>Publication</th>
                 <th>Category</th>
                 <th>Reviews</th>
+                <th>Add Book</th>
             </tr>
+            
             <tr>
                 <td>Dune</td>
                 <td>1956-6-1</td>
                 <td>Science Fiction</td>
                 <td>4.16</td>
+                <td><button id="addbook" onclick="myalert()">Add Book</button></td>
             </tr>
         </table>
         <p></p>
+        
+        
 
-
-
-
-
-
-<!--         <div class="container" id="ccontainer">
-            <div class="cbutton Skeywords">Search using keywords</div>
-            <div class="cbutton browse">Browse for books</div>
-            <div class="cbutton addbook">Add book to order</div>
-            <div class="cbutton change">Change order</div>
-            <div class="cbutton place">Place order</div>
-            <div class="cbutton view">View order</div>
-        </div> -->
     </body>
 </html>
 
