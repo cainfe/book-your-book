@@ -16,9 +16,9 @@
 
         <!-- Header and homepage link-->
         <h1 id="index-pg-hdr"><a class="link-no-display" href="../index.php">Book Your Book</a></h1>
-
+        
+        <!-- POPUP FORMS -->
         <div>
-            <!-- POPUP FORMS -->
             <?php 
                 if (isset($_SESSION['isAdmin']) AND $_SESSION['isAdmin']) {
                     echo("<button onclick=\"toggleForm('add-book', 1)\">Add book</button>");
@@ -27,6 +27,11 @@
             <?php 
                 if (isset($_SESSION['isAdmin']) AND $_SESSION['isAdmin']) {
                     echo("<button onclick=\"toggleForm('add-author', 1)\">Add author</button>");
+                }
+            ?>
+            <?php 
+                if (isset($_SESSION['isAdmin']) AND $_SESSION['isAdmin']) {
+                    echo("<button onclick=\"toggleForm('add-supplier', 1)\">Add supplier</button>");
                 }
             ?>
 
@@ -61,8 +66,8 @@
                         </select>
                     </div>
                     <div class="form-data">
-                        <label>Publisher</label><br>
-                        <select type="text" name="publisher" class="data-input" id="add-book-publisher-field" required>
+                        <label>Supplier</label><br>
+                        <select type="text" name="supplier" class="data-input" id="add-book-supplier-field" required>
                             <option disabled selected value></option>
                             <?php
                             $dbConn = new PDO('sqlite:Data.db');
@@ -135,6 +140,20 @@
                 </form>
             </div>
             
+            <!-- popup form - add supplier -->
+            <div class="popup-form container form-container" id="add-supplier">
+                <button class="form-close-btn" onclick="toggleForm('add-supplier', 0)">x</button>
+                <h2 class="form-title">ADD SUPPLIER</form></h2>
+                <form id="add-supplier-from" action="scripts/addSupplier.php" method="post">
+                    <div class="form-data">
+                        <label>Name</label>
+                        <input type="text" name="name" class="data-input" id="add-supplier-name-field" required>
+                    </div>
+
+                    <button type="submit" id="btn-submit-author" class="form-submit-btn btn-submit-book">Add</button>
+                </form>
+            </div>
+
             <script>
                 function toggleForm(form, show) 
                 {
