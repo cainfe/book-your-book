@@ -53,7 +53,7 @@
                         <select type="text" name="author" class="data-input" id="add-book-author-field" required>
                             <option disabled selected value></option>
                             <?php
-                            $dbConn = new PDO('sqlite:Data.db');
+                            $dbConn = new PDO('sqlite:../Data.db');
                             $result = $dbConn->query("SELECT authorID, fName, lName FROM Authors");
 
                             foreach($result as $row) {
@@ -70,7 +70,7 @@
                         <select type="text" name="supplier" class="data-input" id="add-book-supplier-field" required>
                             <option disabled selected value></option>
                             <?php
-                            $dbConn = new PDO('sqlite:Data.db');
+                            $dbConn = new PDO('sqlite:../Data.db');
                             $result = $dbConn->query("SELECT supplierID, name FROM Suppliers");
 
                             foreach($result as $row) {
