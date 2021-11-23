@@ -25,10 +25,10 @@
         ?>
 
         <!-- popup form - add book -->
-        <div class="opup-form container form-container" id="add-book">
+        <div class="popup-form container form-container" id="add-book">
 			<button class="form-close-btn" onclick="toggleForm('add-book', 0)">x</button>
             <h2 class="form-title">ADD BOOK</form></h2>
-			<form id="login-form" action="scripts/addBook.php" method="post">
+			<form id="add-book-form" action="scripts/addBook.php" method="post">
 				<div class="form-data">
 					<label>ISBN</label>
 					<input type="text" name="isbn" class="data-input" id="add-book-isbn-field" required>
@@ -87,6 +87,46 @@
 			</form>
 		</div>
 
+        <div class="opup-form container form-container" id="add-author">
+			<button class="form-close-btn" onclick="toggleForm('add-author', 0)">x</button>
+            <h2 class="form-title">ADD AUTHOR</form></h2>
+			<form id="add-author-from" action="scripts/addAuthor.php" method="post">
+				<div class="form-data">
+					<label>First Name</label>
+					<input type="text" name="first-name" class="data-input" id="add-author-fname-field" required>
+				</div>
+                <div class="form-data">
+					<label>Last Name</label>
+					<input type="text" name="last-name" class="data-input" id="add-author-lname-field" required>
+				</div>
+				<div class="form-data">
+					<label>Gender</label><br>
+					<select type="text" name="gender" class="data-input" id="add-author-gender-field" required>
+                        <option disabled selected value></option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                    </select>
+				</div>
+				<div class="form-data">
+					<label>Birthday</label>
+					<input type="date" name="birthday" class="data-input" id="add-author-birthday-date-field" required>
+				</div>
+                <div class="form-data">
+					<label>Email</label>
+					<input type="email" name="email" class="data-input" id="add-author-email-field" required>
+				</div>
+                <div class="form-data">
+					<label>Phone</label>
+					<input type="text" name="phone" class="data-input" id="add-author-phone-field" required>
+				</div>
+                <div class="form-data">
+					<label>Address</label>
+					<input type="text" name="address" class="data-input" id="add-author-address-field" required>
+				</div>
+
+				<button type="submit" id="btn-submit-book" class="form-submit-btn btn-submit-book">Add</button>
+			</form>
+		</div>
         
         <script>
             function toggleForm(form, show) 
