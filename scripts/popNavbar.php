@@ -22,7 +22,7 @@
         if ($username == "Login") {
             $string .= "    <a class=\"link-no-display navbar-link navbar-user\" name=\"navbar-user-link\" href=\"../scripts/login.php\">$username</a>";
         } else {
-            $string .= "    <a class=\"link-no-display navbar-link navbar-user\" name=\"navbar-user-link\">$username</a>";
+            $string .= "    <a class=\"link-no-display navbar-link navbar-user\" name=\"navbar-user-link\" href=\"../pages/profile.php\">$username</a>";
         }
         $string .= "</div>";
         echo($string);
@@ -35,9 +35,9 @@
             $string .= "<a class=\"link-no-display navbar-link\" href=\"pages/AdminFE.php\">Admin</a>";
         }
         if ($username == "Login") {
-            $string .= "    <a class=\"link-no-display navbar-link navbar-user\" name=\"navbar-user-link\" href=\"../scripts/login.php\">$username</a>";
+            $string .= "    <a class=\"link-no-display navbar-link navbar-user\" name=\"navbar-user-link\" href=\"scripts/login.php\">$username</a>";
         } else {
-            $string .= "    <a class=\"link-no-display navbar-link navbar-user\" name=\"navbar-user-link\">$username</a>";
+            $string .= "    <a class=\"link-no-display navbar-link navbar-user\" name=\"navbar-user-link\" href=\"pages/profile.php\">$username</a>";
         }
         $string .= "</div>";
         echo($string);
