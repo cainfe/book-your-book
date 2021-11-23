@@ -124,7 +124,7 @@
 					<input type="text" name="address" class="data-input" id="add-author-address-field" required>
 				</div>
 
-				<button type="submit" id="btn-submit-book" class="form-submit-btn btn-submit-book">Add</button>
+				<button type="submit" id="btn-submit-author" class="form-submit-btn btn-submit-book">Add</button>
 			</form>
 		</div>
         
