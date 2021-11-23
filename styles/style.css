@@ -92,6 +92,10 @@ button:active{
 	float: right;
 	margin: 0 0 0 1px;
 }
+.navbar-join {
+	float: right;
+	margin: 0 0 0 1px;
+}
 /* --------------- End Navigation bar ------------------------ */
 
 /* ---------------------- Forms ------------------------------ */

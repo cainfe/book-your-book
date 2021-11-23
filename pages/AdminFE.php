@@ -39,7 +39,7 @@
             <div class="popup-form container form-container" id="add-book">
                 <button class="form-close-btn" onclick="toggleForm('add-book', 0)">x</button>
                 <h2 class="form-title">ADD BOOK</form></h2>
-                <form id="add-book-form" action="scripts/addBook.php" method="post">
+                <form id="add-book-form" action="../scripts/addBook.php" method="post">
                     <div class="form-data">
                         <label>ISBN</label>
                         <input type="text" name="isbn" class="data-input" id="add-book-isbn-field" required>
@@ -102,7 +102,7 @@
             <div class="popup-form container form-container" id="add-author">
                 <button class="form-close-btn" onclick="toggleForm('add-author', 0)">x</button>
                 <h2 class="form-title">ADD AUTHOR</form></h2>
-                <form id="add-author-from" action="scripts/addAuthor.php" method="post">
+                <form id="add-author-form" action="../scripts/addAuthor.php" method="post">
                     <div class="form-data">
                         <label>First Name</label>
                         <input type="text" name="first-name" class="data-input" id="add-author-fname-field" required>
@@ -144,7 +144,7 @@
             <div class="popup-form container form-container" id="add-supplier">
                 <button class="form-close-btn" onclick="toggleForm('add-supplier', 0)">x</button>
                 <h2 class="form-title">ADD SUPPLIER</form></h2>
-                <form id="add-supplier-from" action="scripts/addSupplier.php" method="post">
+                <form id="add-supplier-from" action="../scripts/addSupplier.php" method="post">
                     <div class="form-data">
                         <label>Name</label>
                         <input type="text" name="name" class="data-input" id="add-supplier-name-field" required>
