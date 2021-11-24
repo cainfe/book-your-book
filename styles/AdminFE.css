@@ -15,9 +15,9 @@ grid-template-areas:
 }
 .abutton{
     background-color: rgb(116, 226, 230);
-    height: 100px;
+    height: 50px;
     width: 175px;
-    font-size: 40px;
+    font-size: 15px;
     border-radius: 5px;
     text-align: center;
     line-height: 50px;
