@@ -146,12 +146,12 @@ button:active{
 	border-radius: 5px;
 }
 
-.form-submit-btn {
+.form-submit-btn, .form-cancel-btn {
 	padding: 10px 21px;
 	margin: 10px 0 0 0;
 }
 
-.form-submit-btn:active{
+.form-submit-btn:active, .form-cancel-btn:active {
 	outline: none;
 }
 
