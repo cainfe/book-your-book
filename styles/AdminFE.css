@@ -5,15 +5,17 @@ margin:auto;
 background-color: darkblue;
 border-radius: 10px;
 padding: 25px;
+visibility: visible;
 grid-gap: 3px;
 grid-template-areas: 
-'VCustomer VAuthor VBook VSupplier'
-'VOrder CCustomer CAuthor CBook'
-'RCustomer RAuthor RBook RSupplier';
+'VCustomer VAuthor VBook VSupplier VOrder CCustomer'
+ ' CAuthor CBook RCustomer RAuthor RBook RSupplier';
+
+
 }
 .abutton{
     background-color: rgb(116, 226, 230);
-    height: 200px;
+    height: 100px;
     width: 175px;
     font-size: 40px;
     border-radius: 5px;
