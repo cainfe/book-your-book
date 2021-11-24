@@ -26,12 +26,13 @@
 
     $dbConn->querry("INSERT INTO ContactDetails(ContactID) VALUES($contactID);");
 
-    $result = $dbConn->querry("INSERT INTO Authors(fName, lName, gender, birthDate, contactID)
+    $result = $dbConn->querry("INSERT INTO Customers(fName, lName)
 VALUES('$fname','$lname', '$gender', '$birthday', $contactID)");
 
 
         $dbConn->querry("INSERT INTO ContactEmail (contactID, email) VALUES($contactID, '$email');");
         $dbConn->querry("INSERT INTO ContactPhone ( contactID, phone) VALUES($contactID, $phone);");
+        $dbConn->querry("INSERT INTO UserAccount (username, password, isAdmin, contactID) VALUES('$username','$password', '$isAdmin' ,'$contactID');");
 
 
 
