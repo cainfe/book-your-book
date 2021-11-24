@@ -26,8 +26,8 @@
 
     $dbConn->querry("INSERT INTO ContactDetails(ContactID) VALUES($contactID);");
 
-    $result = $dbConn->querry("INSERT INTO Customers(fName, lName)
-VALUES('$fname','$lname', '$gender', '$birthday', $contactID)");
+    $result = $dbConn->querry("INSERT INTO Customers(fName, lName, contactID)
+VALUES('$fname','$lname', $contactID)");
 
 
         $dbConn->querry("INSERT INTO ContactEmail (contactID, email) VALUES($contactID, '$email');");
