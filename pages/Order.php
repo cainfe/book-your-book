@@ -6,6 +6,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Gentium+Book+Basic&display=swap" rel="stylesheet">
         <link rel = "stylesheet"  href="../styles/style.css">
         <link rel="stylesheet" href="/styles/Order.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <title>Book Your Book | Order</title>
     </head>
 
@@ -18,7 +19,6 @@
         <h1 id="index-pg-hdr"><a class="link-no-display" href="../index.php">Book Your Book</a></h1>
         
         <h1>My Cart</h1>
-        <p></p>
         <table id="btable">
             <tr>
                 <th>Title</th>
@@ -26,22 +26,23 @@
                 <th>Supplier</th>
                 <th>Category</th>
                 <th>Reviews</th>
-                <th>Add Book</th>
+                <th>Options</th>
             </tr>
             
             <!-- Populate the book list -->
             <?php
-            if (!isset($_SESSION['cart'])){
+            if (!isset($_SESSION['cart'])) {
                 echo("<td>There are no items in the cart.</td>");
             } else {
                 // Connect to the database
                 $dbConn = new PDO('sqlite:../Data.db');
 
                 $result = $dbConn->query("SELECT fName, lName, ISBN, title, suppliedBy, reviews FROM Books, Authors, BookAuthors
-                WHERE BookAuthors.bookID = Books.ISBN AND BookAuthors.authorID = Authors.authorID;");
+                WHERE BookAuthors.bookID = Books.isbn AND BookAuthors.authorID = Authors.authorID;");
 
                 foreach($result as $row) {
                     if (in_array($row['ISBN'], $_SESSION['cart'])) {
+                        $isbn = $row['ISBN'];
                         $title = $row['title'];
                         $authorFName = $row['fName'];
                         $authorLName = $row['lName'];
@@ -54,13 +55,27 @@
                         echo("    <td>$supplier</td>");
                         echo("    <td>$category</td>");
                         echo("    <td>$reviews</td>");
-                        echo("    <td><button class=\"remove-book-btn\" onclick=\"myalert()\">Remove Book</button></td>");
+                        echo("    <td><button class=\"remove-book-btn\" name=\"$isbn\">Remove Book</button></td>");
                         echo("</tr>");
                     }
                 }
             }
             ?>
         </table>
+        
+        <script>
+            // DONT TOUCH!
+            $('.remove-book-btn').click(function() {
+                //var isbn = $(this).attr('name');
+                $.ajax({
+                    type: "POST",
+                    url: "../scripts/removeBookFromCart.php",
+                    data: { isbn: $(this).attr('name') }
+                }).done(function(msg) {
+                    location.reload();
+                });
+            });
+        </script>
 
         <!--Order summary
             Place Order 

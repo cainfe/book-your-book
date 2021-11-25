@@ -56,7 +56,7 @@
                 <th>Supplier</th>
                 <th>Category</th>
                 <th>Reviews</th>
-                <th>Add Book</th>
+                <th>Options</th>
             </tr>
             
             <!-- Populate the book list -->
