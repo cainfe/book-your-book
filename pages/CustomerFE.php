@@ -98,7 +98,7 @@
                     data: { isbn: $(this).attr('name') }
                 }).done(function(msg) {
                     if (window.confirm("Book has been succefully added. Go to cart?")){
-                        window.open("Order.php");
+                        location.assign("Order.php");
                     }
                 });
             });
