@@ -14,4 +14,7 @@
     $result= $dbConn->query("INSERT INTO SupplierReps(fName, lName, email, workNumber, cellNumber, worksfor)
      VALUES('$fname', '$lname', '$email', $workNumber, $cellNumber, $worksFor);");
 
+    // Return to previous page.
+    header('location:javascript://history.go(-1)');
+    exit;
 ?>
