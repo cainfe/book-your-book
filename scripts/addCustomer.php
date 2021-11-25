@@ -1,38 +1,37 @@
 <?php
-     $fname = $_POST['first-name'];
-    $lname = $_POST['last-name'];
-    $gender = $_POST['gender'];
+    $fname = $_POST['fname'];
+    $lname = $_POST['lname'];
     $birthday = $_POST['birthday'];
     $email = $_POST['email'];
     $phone = $_POST['phone'];
     $address = $_POST['address'];
     $username = $_POST['username'];
     $password = $_POST['password'];
-    $isAdmin = $_POST['isAdmin'];
+    $isAdmin = 0;
 
-    echo("$fname, $lname, $gender, $birthday, $email, $phone, $address");
+    echo("$fname, $lname, $birthday, $email, $phone, $address");
 
     // Connect to the database
     $dbConn = new PDO('sqlite:../Data.db');
 
-    $contactID = $dbConn->querry("SELECT MAX(contactID) FROM ContactDetails");
+    $result = $dbConn->query("SELECT MAX(contactID) FROM ContactDetails;");
+    $contactID = $result->fetch()[0]; // Have to get 'contactId' from PDOStatement object
+
     if($contactID == null){
         $contactID = 1;
     }
     else {
-
-    $contactID++;
+        $contactID++;
     }
 
-    $dbConn->querry("INSERT INTO ContactDetails(ContactID) VALUES($contactID);");
+    $dbConn->query("INSERT INTO ContactDetails(ContactID) VALUES($contactID);");
 
-    $result = $dbConn->querry("INSERT INTO Customers(fName, lName, contactID)
-VALUES('$fname','$lname', $contactID)");
+    $result = $dbConn->query("INSERT INTO Customers(fName, lName, username, password, isAdmin, contactID) VALUES('$fname','$lname', '$username', '$password', '$isAdmin', $contactID);");
 
 
-        $dbConn->querry("INSERT INTO ContactEmail (contactID, email) VALUES($contactID, '$email');");
-        $dbConn->querry("INSERT INTO ContactPhone ( contactID, phone) VALUES($contactID, $phone);");
-        $dbConn->querry("INSERT INTO UserAccount (username, password, isAdmin, contactID) VALUES('$username','$password', '$isAdmin' ,'$contactID');");
+    $dbConn->query("INSERT INTO ContactAddress (contactID, address) VALUES($contactID, '$address');");
+    $dbConn->query("INSERT INTO ContactEmail (contactID, email) VALUES($contactID, '$email');");
+    $dbConn->query("INSERT INTO ContactPhone ( contactID, phone) VALUES($contactID, $phone);");
 
 
 
