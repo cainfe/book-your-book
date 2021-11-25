@@ -33,7 +33,8 @@
     $dbConn->query("INSERT INTO ContactEmail (contactID, email) VALUES($contactID, '$email');");
     $dbConn->query("INSERT INTO ContactPhone ( contactID, phone) VALUES($contactID, $phone);");
 
-
-
-
+    
+    // Return to previous page.
+    header('Location: ../index.html');
+    exit;
 ?>

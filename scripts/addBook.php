@@ -16,6 +16,7 @@
 
     $result = $dbConn->query("INSERT INTO BookAuthors(authorID, bookID) VALUES($authorID, $isbn);");
 
-    // Return to admin page.
-    header('Location: ../pages/AdminFE.php');
+    // Return to previous page.
+    header('location:javascript://history.go(-1)');
+    exit;
 ?>

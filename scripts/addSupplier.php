@@ -6,6 +6,7 @@
 
     $result = $dbConn->query("INSERT INTO suppliers(name) VALUES ('$name');");
 
-    // Return to admin page.
-    header('Location: ../pages/AdminFE.php');
+    // Return to previous page.
+    header('location:javascript://history.go(-1)');
+    exit;
 ?>

@@ -28,6 +28,7 @@
     $dbConn->query("INSERT INTO ContactEmail (contactID, email) VALUES($contactID, '$email');");
     $dbConn->query("INSERT INTO ContactPhone (contactID, phone) VALUES($contactID, $phone);");
 
-    // Return to admin page.
-    header('Location: ../pages/AdminFE.php');
+    // Return to previous page.
+    header('location:javascript://history.go(-1)');
+    exit;
 ?>

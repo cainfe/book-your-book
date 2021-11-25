@@ -1,5 +1,5 @@
 <?php
-    fname = $_POST['first-name'];
+    $fname = $_POST['first-name'];
     $lname = $_POST['last-name'];
     $email = $_POST['email'];
     $workNumber = $_POST['workNumber'];

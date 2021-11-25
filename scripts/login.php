@@ -27,12 +27,15 @@
         // Close database connection and return to login screen for failed
         // attempt
         $dbConn = null;
-        header('Location: ../pages/login.html');
+        // Return to the calling page.
+        header('Location:javascript://history.go(-1)');
+        exit;
     }
     else {
-        // Close database connection and go on to homepage for successful 
-        // login
+        // Close database connection.
         $dbConn = null;
+        // Return to the calling page.
         header('Location: ../index.php');
+        exit;
     }
 ?>
