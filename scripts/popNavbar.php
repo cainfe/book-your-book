@@ -23,11 +23,11 @@
         }
         if ($username == "Login") {
             // If user is not logged in
-            $string .= "    <a class=\"link-no-display navbar-link navbar-user\" name=\"navbar-user-link\" href=\"../scripts/login.php\">$username</a>";
-            $string .= "    <a class=\"navbar-link navbar-join\" name=\"navbar-join-link\" href=\"../pages/join.html\">Join</a>";
+            $string .= "    <a class=\"link-no-display navbar-link navbar-user\" name=\"navbar-user-link\" href=\"login.html\">$username</a>";
+            $string .= "    <a class=\"navbar-link navbar-join\" name=\"navbar-join-link\" href=\"join.html\">Join</a>";
         } else {
             // user is logged in
-            $string .= "    <a class=\"link-no-display navbar-link navbar-user\" name=\"navbar-user-link\" href=\"../pages/profile.php\">$username</a>";
+            $string .= "    <a class=\"link-no-display navbar-link navbar-user\" name=\"navbar-user-link\" href=\"profile.php\">$username</a>";
         }
         $string .= "</div>";
         echo($string);
