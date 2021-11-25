@@ -34,6 +34,11 @@
                     echo("<button onclick=\"toggleForm('add-supplier', 1)\">Add supplier</button>");
                 }
             ?>
+            <?php 
+                if (isset($_SESSION['isAdmin']) AND $_SESSION['isAdmin']) {
+                    echo("<button onclick=\"toggleForm('add-supplier-rep', 1)\">Add supplier representative</button>");
+                }
+            ?>
 
             <!-- popup form - add book -->
             <div class="popup-form container form-container" id="add-book">
@@ -151,6 +156,52 @@
                     </div>
 
                     <button type="submit" id="btn-submit-author" class="form-submit-btn btn-submit-book">Add</button>
+                </form>
+            </div>
+
+            <!-- popup form - add supplierRep -->
+            <div class="popup-form container form-container" id="add-supplier-rep">
+                <button class="form-close-btn" onclick="toggleForm('add-supplier-rep', 0)">x</button>
+                <h2 class="form-title">ADD SUPPLIER REPRESENTATIVE</form></h2>
+                <form id="add-author-form" action="../scripts/addSupplierRep.php" method="post">
+                    <div class="form-data">
+                        <label>First Name</label>
+                        <input type="text" name="first-name" class="data-input" id="add-supplier-rep-fname-field" required>
+                    </div>
+                    <div class="form-data">
+                        <label>Last Name</label>
+                        <input type="text" name="last-name" class="data-input" id="add-supplier-rep-lname-field" required>
+                    </div>
+                    <div class="form-data">
+                        <label>Email</label>
+                        <input type="email" name="email" class="data-input" id="add-author-email-field" required>
+                    </div>
+                    <div class="form-data">
+                        <label>Work Phone</label>
+                        <input type="text" name="work-phone" class="data-input" id="add-author-work-phone-field" required>
+                    </div>
+                    <div class="form-data">
+                        <label>Cell Phone</label>
+                        <input type="text" name="cell-phone" class="data-input" id="add-author-cell-phone-field" required>
+                    </div>
+                    <div class="form-data">
+                        <label>Works For</label><br>
+                        <select type="text" name="supplier" class="data-input" id="add-supplier-rep-supplier-field" required>
+                            <option disabled selected value></option>
+                            <?php
+                            $dbConn = new PDO('sqlite:../Data.db');
+                            $result = $dbConn->query("SELECT supplierID, name FROM Suppliers");
+
+                            foreach($result as $row) {
+                                $supplierID = $row['supplierID'];
+                                $name = $row['name'];
+                                echo("<option value=\"$supplierID\">$name</option>");
+                            }
+                            ?>
+                        </select>
+                    </div>
+
+                    <button type="submit" id="btn-submit-supplier-rep" class="form-submit-btn btn-submit-book">Add</button>
                 </form>
             </div>
 
