@@ -51,6 +51,7 @@
         <table id="btable">
             <tr>
                 <th>Title</th>
+                <th>Author</th>
                 <th>Supplier</th>
                 <th>Category</th>
                 <th>Reviews</th>
@@ -62,15 +63,19 @@
                 // Connect to the database
                 $dbConn = new PDO('sqlite:../Data.db');
 
-                $result = $dbConn->query("SELECT title, suppliedBy, reviews FROM Books");
+                $result = $dbConn->query("SELECT fName, lName, title, suppliedBy, reviews FROM Books, Authors, BookAuthors
+                WHERE BookAuthors.bookID = Books.isbn AND BookAuthors.authorID = Authors.authorID;");
 
                 foreach($result as $row) {
                     $title = $row['title'];
+                    $authorFName = $row['fName'];
+                    $authorLName = $row['lName'];
                     $supplier = $row['suppliedBy'];
                     $category = "none";
                     $reviews = $row['reviews'];
                     echo("<tr>");
                     echo("<td>$title</td>");
+                    echo("<td>$authorFName $authorLName</td>");
                     echo("<td>$supplier</td>");
                     echo("<td>$category</td>");
                     echo("<td>$reviews</td>");
