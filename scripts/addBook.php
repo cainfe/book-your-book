@@ -16,6 +16,5 @@
 
     $authorID = $dbConn->query("SELECT authorID FROM Authors WHERE fName = %$author%; ");
 
-   $result = $dbConn->query("INSERT INTO BookAuthors(authorID, bookID)
-    VALUES(%$authorID%,%$isbn%)");
+    $result = $dbConn->query("INSERT INTO BookAuthors(authorID, bookID) VALUES(%$authorID%,%$isbn%)");
 ?>

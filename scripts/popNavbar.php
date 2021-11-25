@@ -3,12 +3,12 @@
     
     // if the session is empty (no one has logged in) then set the sessions 
     // 'userID' to 0.
-    if (!isset($_SESSION["userID"])) {
-        $_SESSION["userID"] = 0;
+    if (!isset($_SESSION["customerID"])) {
+        $_SESSION["customerID"] = 0;
     }
 
     $username = "Login"; // placeholder, if no one is logged in.
-    if ($_SESSION["userID"] !== 0) {
+    if ($_SESSION["customerID"] !== 0) {
         $username = $_SESSION["username"];
     }
     

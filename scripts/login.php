@@ -7,16 +7,16 @@
     // Connect to the database
     $dbConn = new PDO('sqlite:../Data.db');
 
-    $result = $dbConn->query("SELECT username, password, userID, isAdmin FROM UserAccount");
+    $result = $dbConn->query("SELECT username, password, customerID, isAdmin FROM Customers");
 
     // Check to see if username and password correspond
     foreach($result as $row) {
         if ($row['username'] == $username) {
             if ($row['password'] == $password) {
                 // if so, begin session and store user variables
-                $user = $row['userID'];
+                $user = $row['customerID'];
                 session_start();
-                $_SESSION["userID"] = "$user";
+                $_SESSION["customerID"] = "$user";
                 $_SESSION["username"] = "$username";
                 $_SESSION["isAdmin"] = $row['isAdmin'];
             }
