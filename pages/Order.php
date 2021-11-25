@@ -10,6 +10,13 @@
     </head>
 
     <body>
+        <!-- Navigation bar -->
+        <?php $isIndex = FALSE; ?>
+        <?php include '../scripts/popNavbar.php' ?>
+
+        <!-- Header and homepage link-->
+        <h1 id="index-pg-hdr"><a class="link-no-display" href="../index.php">Book Your Book</a></h1>
+        
         <h1>My Cart</h1>
         <p></p>
         <table id="btable">

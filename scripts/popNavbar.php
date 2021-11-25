@@ -16,7 +16,8 @@
         // Not index page
         $string = "<div class=\"nav-bar\">";
         $string .= "    <a class=\"link-no-display navbar-link\" href=\"../index.php\">Home</a>";
-        $string .= "    <a class=\"link-no-display navbar-link\" href=\"CustomerFE.php\">Customer</a>";
+        $string .= "    <a class=\"link-no-display navbar-link\" href=\"CustomerFE.php\">Book Shelf</a>";
+        $string .= "    <a class=\"link-no-display navbar-link\" href=\"Order.php\">Cart</a>";
         if (isset($_SESSION['isAdmin']) AND $_SESSION['isAdmin']) {
             $string .= "<a class=\"link-no-display navbar-link\" href=\"AdminFE.php\">Admin</a>";
         }
@@ -35,7 +36,8 @@
         // index page
         $string = "<div class=\"nav-bar\">";
         $string .= "    <a class=\"link-no-display navbar-link\" href=\"index.php\">Home</a>";
-        $string .= "    <a class=\"link-no-display navbar-link\" href=\"pages/CustomerFE.php\">Customer</a>";
+        $string .= "    <a class=\"link-no-display navbar-link\" href=\"pages/CustomerFE.php\">Book Shelf</a>";
+        $string .= "    <a class=\"link-no-display navbar-link\" href=\"pages/Order.php\">Cart</a>";
         if (isset($_SESSION['isAdmin']) AND $_SESSION['isAdmin']) {
             $string .= "<a class=\"link-no-display navbar-link\" href=\"pages/AdminFE.php\">Admin</a>";
         }

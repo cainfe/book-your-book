@@ -57,12 +57,13 @@
                 <th>Add Book</th>
             </tr>
             
+            <!-- Populate the book list -->
             <?php
                 // Connect to the database
                 $dbConn = new PDO('sqlite:../Data.db');
 
                 $result = $dbConn->query("SELECT title, suppliedBy, reviews FROM Books");
-                
+
                 foreach($result as $row) {
                     $title = $row['title'];
                     $supplier = $row['suppliedBy'];
