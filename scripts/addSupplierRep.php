@@ -11,7 +11,7 @@
     // Connect to the database
     $dbConn = new PDO('sqlite:../Data.db');
 
-    $result= $dbConn->query("INSERT INTO supplierReps(fName, lName, email, workNumber, cellNumber, worksfor)
+    $result= $dbConn->query("INSERT INTO SupplierReps(fName, lName, email, workNumber, cellNumber, worksfor)
      VALUES('$fname', '$lname', '$email', $workNumber, $cellNumber, $worksFor);");
 
 ?>
