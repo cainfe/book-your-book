@@ -22,12 +22,44 @@
         <table id="btable">
             <tr>
                 <th>Title</th>
-                <th>Publication</th>
+                <th>Author</th>
+                <th>Supplier</th>
                 <th>Category</th>
                 <th>Reviews</th>
-                <th>Remove</th>
+                <th>Add Book</th>
             </tr>
-            <!--Books added in table-->
+            
+            <!-- Populate the book list -->
+            <?php
+            if (!isset($_SESSION['cart'])){
+                echo("<td>There are no items in the cart.</td>");
+            } else {
+                // Connect to the database
+                $dbConn = new PDO('sqlite:../Data.db');
+
+                $result = $dbConn->query("SELECT fName, lName, ISBN, title, suppliedBy, reviews FROM Books, Authors, BookAuthors
+                WHERE BookAuthors.bookID = Books.ISBN AND BookAuthors.authorID = Authors.authorID;");
+
+                foreach($result as $row) {
+                    if (in_array($row['ISBN'], $_SESSION['cart'])) {
+                        $title = $row['title'];
+                        $authorFName = $row['fName'];
+                        $authorLName = $row['lName'];
+                        $supplier = $row['suppliedBy'];
+                        $category = "none";
+                        $reviews = $row['reviews'];
+                        echo("<tr>");
+                        echo("    <td>$title</td>");
+                        echo("    <td>$authorFName $authorLName</td>");
+                        echo("    <td>$supplier</td>");
+                        echo("    <td>$category</td>");
+                        echo("    <td>$reviews</td>");
+                        echo("    <td><button class=\"remove-book-btn\" onclick=\"myalert()\">Remove Book</button></td>");
+                        echo("</tr>");
+                    }
+                }
+            }
+            ?>
         </table>
 
         <!--Order summary

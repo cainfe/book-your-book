@@ -6,6 +6,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Gentium+Book+Basic&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="..\styles\style.css">
         <link rel="stylesheet" href="..\styles\CustomerFE.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <title>Book Your Book | Customer Account</title>
     </head>
 
@@ -42,8 +43,8 @@
         <!--addbook button-->
         <script>
             function myalert(){
-                if (window.confirm("Book has been succefully added. Go to cart.")){
-                    window.open("Order.html");
+                if (window.confirm("Book has been succefully added. Go to cart?")){
+                    window.open("Order.php");
                 }
             }
         </script>
@@ -63,10 +64,11 @@
                 // Connect to the database
                 $dbConn = new PDO('sqlite:../Data.db');
 
-                $result = $dbConn->query("SELECT fName, lName, title, suppliedBy, reviews FROM Books, Authors, BookAuthors
+                $result = $dbConn->query("SELECT fName, lName, ISBN, title, suppliedBy, reviews FROM Books, Authors, BookAuthors
                 WHERE BookAuthors.bookID = Books.isbn AND BookAuthors.authorID = Authors.authorID;");
 
                 foreach($result as $row) {
+                    $isbn = $row['ISBN'];
                     $title = $row['title'];
                     $authorFName = $row['fName'];
                     $authorLName = $row['lName'];
@@ -74,19 +76,33 @@
                     $category = "none";
                     $reviews = $row['reviews'];
                     echo("<tr>");
-                    echo("<td>$title</td>");
-                    echo("<td>$authorFName $authorLName</td>");
-                    echo("<td>$supplier</td>");
-                    echo("<td>$category</td>");
-                    echo("<td>$reviews</td>");
-                    echo("<td><button id=\"addbook\" onclick=\"myalert()\">Add Book</button></td>");
+                    echo("    <td>$title</td>");
+                    echo("    <td>$authorFName $authorLName</td>");
+                    echo("    <td>$supplier</td>");
+                    echo("    <td>$category</td>");
+                    echo("    <td>$reviews</td>");
+                    echo("    <td><button class=\"add-book-btn\" name=\"$isbn\" >Add Book</button></td>");
                     echo("</tr>");
                 }
                 ?>
         </table>
         <p></p>
         
-        
+        <script>
+            // DONT TOUCH!
+            $('.add-book-btn').click(function() {
+                //var isbn = $(this).attr('name');
+                $.ajax({
+                    type: "POST",
+                    url: "../scripts/addBookToCart.php",
+                    data: { isbn: $(this).attr('name') }
+                }).done(function(msg) {
+                    if (window.confirm("Book has been succefully added. Go to cart?")){
+                        window.open("Order.php");
+                    }
+                });
+            });
+        </script>
 
     </body>
 </html>

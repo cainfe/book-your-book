@@ -78,6 +78,39 @@ tr {
 	border-bottom: 1px solid var(--secondaryColor);
 }
 
+/* ------------------------ Table ---------------------------- */
+table
+{
+    border-collapse: collapse;
+    width: 100%;
+}
+
+table td, table th
+{
+    padding: 8px;
+    border: 1px darkblue;
+}
+
+table tr:nth-child(even)
+{
+    background-color: #f2f2f2;
+}
+
+table tr:hover
+{
+    background-color: #ddd;
+}
+
+table th
+{
+    font-size: 25px;
+    padding: 12px;
+    text-align: center;
+    background-color: rgb(116, 226, 230);
+    color: black;
+}
+/* --------------------- End Table --------------------------- */
+
 /* ------------------- Navigation bar ------------------------ */
 .nav-bar {
 	background-color: var(--thirdColor);
