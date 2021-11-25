@@ -51,19 +51,32 @@
         <table id="btable">
             <tr>
                 <th>Title</th>
-                <th>Publication</th>
+                <th>Supplier</th>
                 <th>Category</th>
                 <th>Reviews</th>
                 <th>Add Book</th>
             </tr>
             
-            <tr>
-                <td>Dune</td>
-                <td>1956-6-1</td>
-                <td>Science Fiction</td>
-                <td>4.16</td>
-                <td><button id="addbook" onclick="myalert()">Add Book</button></td>
-            </tr>
+            <?php
+                // Connect to the database
+                $dbConn = new PDO('sqlite:../Data.db');
+
+                $result = $dbConn->query("SELECT title, suppliedBy, reviews FROM Books");
+                
+                foreach($result as $row) {
+                    $title = $row['title'];
+                    $supplier = $row['suppliedBy'];
+                    $category = "none";
+                    $reviews = $row['reviews'];
+                    echo("<tr>");
+                    echo("<td>$title</td>");
+                    echo("<td>$supplier</td>");
+                    echo("<td>$category</td>");
+                    echo("<td>$reviews</td>");
+                    echo("<td><button id=\"addbook\" onclick=\"myalert()\">Add Book</button></td>");
+                    echo("</tr>");
+                }
+                ?>
         </table>
         <p></p>
         
