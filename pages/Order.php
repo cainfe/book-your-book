@@ -32,14 +32,14 @@
             <?php
             // Connect to the database
             $dbConn = new PDO('sqlite:../Data.db');
-            $result = $dbConn->query("SELECT orderID, date, value, customerID FROM Orders;");
+            $result = $dbConn->query("SELECT orderID, date, customerID FROM Orders;");
 
             $noOrders = 1;
             foreach($result as $row) {
                 if ($row['customerID'] == $_SESSION['customerID']) {
                     $orderID = $row['orderID'];
                     $date = $row['date'];
-                    $value = $row['value'];
+                    $value = "$0.00";
                     $numItems = $dbConn->query("SELECT COUNT(IDNumber) FROM OrderItems WHERE OrderItems.orderID = $orderID;")->fetch()[0];
                     echo("<tr>");
                     echo("    <td>$orderID</td>");
@@ -59,12 +59,12 @@
         
         <script>
             // DONT TOUCH!
-            $('.remove-book-btn').click(function() {
+            $('.remove-order-btn').click(function() {
                 //var isbn = $(this).attr('name');
                 $.ajax({
-                    type: "POST",
-                    url: "../scripts/removeBookFromCart.php",
-                    data: { isbn: $(this).attr('name') }
+                    //type: "POST",
+                    //url: "../scripts/removeBookFromCart.php",
+                    //data: { isbn: $(this).attr('name') }
                 }).done(function(msg) {
                     location.reload();
                 });

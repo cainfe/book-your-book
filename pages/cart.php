@@ -29,6 +29,8 @@
                 <th>Options</th>
             </tr>
             
+            <form  action="../scripts/addOrder.php"><button type="submit" id="submit-cart-btn" class="form-submit-btn">Submit Order</button></form>
+            
             <!-- Populate the book list -->
             <?php
             if (!isset($_SESSION['cart']) or count($_SESSION['cart']) == 0) {
@@ -37,8 +39,8 @@
                 // Connect to the database
                 $dbConn = new PDO('sqlite:../Data.db');
 
-                $result = $dbConn->query("SELECT fName, lName, ISBN, title, suppliedBy, reviews FROM Books, Authors, BookAuthors
-                WHERE BookAuthors.bookID = Books.isbn AND BookAuthors.authorID = Authors.authorID;");
+                $result = $dbConn->query("SELECT name, fName, lName, ISBN, title, reviews FROM Books, Authors, BookAuthors, Suppliers
+                WHERE BookAuthors.bookID = Books.isbn AND BookAuthors.authorID = Authors.authorID AND Suppliers.supplierID = Books.suppliedBy;");
 
                 foreach($result as $row) {
                     if (in_array($row['ISBN'], $_SESSION['cart'])) {
@@ -46,7 +48,7 @@
                         $title = $row['title'];
                         $authorFName = $row['fName'];
                         $authorLName = $row['lName'];
-                        $supplier = $row['suppliedBy'];
+                        $supplier = $row['name'];
                         $category = "none";
                         $reviews = $row['reviews'];
                         echo("<tr>");

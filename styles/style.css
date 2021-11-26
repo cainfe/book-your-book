@@ -78,6 +78,10 @@ tr {
 	border-bottom: 1px solid var(--secondaryColor);
 }
 
+#submit-order-btn {
+	float: right;
+}
+
 /* ------------------------ Table ---------------------------- */
 table
 {

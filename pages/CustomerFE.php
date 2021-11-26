@@ -64,7 +64,7 @@
                 // Connect to the database
                 $dbConn = new PDO('sqlite:../Data.db');
 
-                $result = $dbConn->query("SELECT name, fName, lName, ISBN, title, suppliedBy, reviews FROM Books, Authors, BookAuthors, Suppliers
+                $result = $dbConn->query("SELECT name, fName, lName, ISBN, title, reviews FROM Books, Authors, BookAuthors, Suppliers
                 WHERE BookAuthors.bookID = Books.isbn AND BookAuthors.authorID = Authors.authorID AND Suppliers.supplierID = Books.suppliedBy;");
 
                 foreach($result as $row) {
