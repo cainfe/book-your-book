@@ -18,47 +18,41 @@
         <!-- Header and homepage link-->
         <h1 id="index-pg-hdr"><a class="link-no-display" href="../index.php">Book Your Book</a></h1>
         
-        <h1>My Cart</h1>
+        <h1>My Orders</h1>
         <table id="btable">
             <tr>
-                <th>Title</th>
-                <th>Author</th>
-                <th>Supplier</th>
-                <th>Category</th>
-                <th>Reviews</th>
+                <th>Order ID</th>
+                <th>Date</th>
+                <th>Items</th>
+                <th>Value</th>
                 <th>Options</th>
             </tr>
             
             <!-- Populate the book list -->
             <?php
-            if (!isset($_SESSION['cart']) or count($_SESSION['cart']) == 0) {
-                echo("<td>There are no items in the cart.</td>");
-            } else {
-                // Connect to the database
-                $dbConn = new PDO('sqlite:../Data.db');
+            // Connect to the database
+            $dbConn = new PDO('sqlite:../Data.db');
+            $result = $dbConn->query("SELECT orderID, date, value, customerID FROM Orders;");
 
-                $result = $dbConn->query("SELECT fName, lName, ISBN, title, suppliedBy, reviews FROM Books, Authors, BookAuthors
-                WHERE BookAuthors.bookID = Books.isbn AND BookAuthors.authorID = Authors.authorID;");
-
-                foreach($result as $row) {
-                    if (in_array($row['ISBN'], $_SESSION['cart'])) {
-                        $isbn = $row['ISBN'];
-                        $title = $row['title'];
-                        $authorFName = $row['fName'];
-                        $authorLName = $row['lName'];
-                        $supplier = $row['suppliedBy'];
-                        $category = "none";
-                        $reviews = $row['reviews'];
-                        echo("<tr>");
-                        echo("    <td>$title</td>");
-                        echo("    <td>$authorFName $authorLName</td>");
-                        echo("    <td>$supplier</td>");
-                        echo("    <td>$category</td>");
-                        echo("    <td>$reviews</td>");
-                        echo("    <td><button class=\"remove-book-btn\" name=\"$isbn\">Remove Book</button></td>");
-                        echo("</tr>");
-                    }
+            $noOrders = 1;
+            foreach($result as $row) {
+                if ($row['customerID'] == $_SESSION['customerID']) {
+                    $orderID = $row['orderID'];
+                    $date = $row['date'];
+                    $value = $row['value'];
+                    $numItems = $dbConn->query("SELECT COUNT(IDNumber) FROM OrderItems WHERE OrderItems.orderID = $orderID;")->fetch()[0];
+                    echo("<tr>");
+                    echo("    <td>$orderID</td>");
+                    echo("    <td>$date</td>");
+                    echo("    <td>$numItems</td>");
+                    echo("    <td>$value</td>");
+                    echo("    <td><button class=\"order-details-btn\">Details</button><button class=\"remove-order-btn\">Cancel</button></td>");
+                    echo("</tr>");
+                    $noOrders = 0;
                 }
+            }
+            if ($noOrders) {
+                echo("<td>There are currently no orders.</td>");
             }
             ?>
         </table>

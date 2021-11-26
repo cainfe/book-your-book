@@ -64,15 +64,15 @@
                 // Connect to the database
                 $dbConn = new PDO('sqlite:../Data.db');
 
-                $result = $dbConn->query("SELECT fName, lName, ISBN, title, suppliedBy, reviews FROM Books, Authors, BookAuthors
-                WHERE BookAuthors.bookID = Books.isbn AND BookAuthors.authorID = Authors.authorID;");
+                $result = $dbConn->query("SELECT name, fName, lName, ISBN, title, suppliedBy, reviews FROM Books, Authors, BookAuthors, Suppliers
+                WHERE BookAuthors.bookID = Books.isbn AND BookAuthors.authorID = Authors.authorID AND Suppliers.supplierID = Books.suppliedBy;");
 
                 foreach($result as $row) {
                     $isbn = $row['ISBN'];
                     $title = $row['title'];
                     $authorFName = $row['fName'];
                     $authorLName = $row['lName'];
-                    $supplier = $row['suppliedBy'];
+                    $supplier = $row['name'];
                     $category = "none";
                     $reviews = $row['reviews'];
                     echo("<tr>");
@@ -98,7 +98,7 @@
                     data: { isbn: $(this).attr('name') }
                 }).done(function(msg) {
                     if (window.confirm("Book has been succefully added. Go to cart?")){
-                        location.assign("Order.php");
+                        location.assign("cart.php");
                     }
                 });
             });
