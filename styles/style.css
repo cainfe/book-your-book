@@ -78,8 +78,9 @@ tr {
 	border-bottom: 1px solid var(--secondaryColor);
 }
 
-#submit-order-btn {
+#submit-cart-btn {
 	float: right;
+	margin: 0px 10px 10px 0px;
 }
 
 /* ------------------------ Table ---------------------------- */
