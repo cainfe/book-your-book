@@ -78,6 +78,10 @@ tr {
 	border-bottom: 1px solid var(--secondaryColor);
 }
 
+#search-books {
+	margin: 0px 10px 10px 0px;
+}
+
 #submit-cart-btn {
 	float: right;
 	margin: 0px 10px 10px 0px;

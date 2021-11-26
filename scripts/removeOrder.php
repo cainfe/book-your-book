@@ -3,7 +3,6 @@
         session_start();
     }
     
-    // DONT TOUCH
     if (isset($_POST['orderID'])) {
         // Connect to the database
         $dbConn = new PDO('sqlite:../Data.db');

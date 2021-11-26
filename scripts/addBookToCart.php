@@ -3,7 +3,6 @@
         session_start();
     }
     
-    // DONT TOUCH
     if (isset($_POST['isbn'])) {
         $isbn = $_POST['isbn'];
         if (!isset($_SESSION['cart'])) {

@@ -66,7 +66,6 @@
         </table>
         
         <script>
-            // DONT TOUCH!
             $('.remove-book-btn').click(function() {
                 //var isbn = $(this).attr('name');
                 $.ajax({

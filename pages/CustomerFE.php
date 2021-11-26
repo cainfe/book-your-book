@@ -20,34 +20,9 @@
 
         <!--Search bar-->
         <form action="" method="post" class="bar">
-            <input type="text" id="search" placeholder="Search..">
+            <input type="text" id="search-books" placeholder="Search..">
             <button type="submit" name="submit">Search</button>
         </form>
-        
-        <!-- <div class="bar">
-            <input type="text" id="search" placeholder="Search..">
-        </div> -->
-        <p></p>
-        
-        <!--Browse for books-->
-        <div class="bbar">
-            <a href="#title">Title</a>
-            <a href="#publication">Publication</a>
-            <a href="#category">Category</a>
-            <a href="#reviews">Reviews</a>
-            <!-- <a>Add</a> -->
-        </div>
-        <p></p>
-
-
-        <!--addbook button-->
-        <script>
-            function myalert(){
-                if (window.confirm("Book has been succefully added. Go to cart?")){
-                    window.open("Order.php");
-                }
-            }
-        </script>
 
         <table id="btable">
             <tr>
@@ -94,7 +69,6 @@
         <p></p>
         
         <script>
-            // DONT TOUCH!
             $('.add-book-btn').click(function() {
                 $.ajax({
                     type: "POST",
@@ -109,7 +83,6 @@
         </script>
 
         <script>
-            // DONT TOUCH!
             $('.remove-book-btn').click(function() {
                 if (window.confirm("This action will permanantly delete the book, continue?")) {
                     $.ajax({

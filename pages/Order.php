@@ -58,7 +58,7 @@
         </table>
         
         <script>
-            // DONT TOUCH!
+            // DONT TOUCH! It's beautiful ),:
             $('.remove-order-btn').click(function() {
                 //var isbn = $(this).attr('name');
                 $.ajax({
@@ -70,9 +70,5 @@
                 });
             });
         </script>
-
-        <!--Order summary
-            Place Order 
-            View order-->
     </body>
 </html>
