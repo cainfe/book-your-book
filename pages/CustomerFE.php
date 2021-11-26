@@ -81,7 +81,12 @@
                     echo("    <td>$supplier</td>");
                     echo("    <td>$category</td>");
                     echo("    <td>$reviews</td>");
-                    echo("    <td><button class=\"add-book-btn\" name=\"$isbn\" >Add Book</button></td>");
+                    echo("    <td><button class=\"add-book-btn\" name=\"$isbn\" >+</button>");
+                    if (isset($_SESSION['isAdmin']) AND $_SESSION['isAdmin']) {
+                        //echo("    <button class=\"add-book-btn\" name=\"$isbn\" >E</button>");
+                        echo("    <button class=\"remove-book-btn\" name=\"$isbn\" >R</button>");
+                    }
+                    echo("</td>");
                     echo("</tr>");
                 }
                 ?>
@@ -91,7 +96,6 @@
         <script>
             // DONT TOUCH!
             $('.add-book-btn').click(function() {
-                //var isbn = $(this).attr('name');
                 $.ajax({
                     type: "POST",
                     url: "../scripts/addBookToCart.php",
@@ -101,6 +105,21 @@
                         location.assign("cart.php");
                     }
                 });
+            });
+        </script>
+
+        <script>
+            // DONT TOUCH!
+            $('.remove-book-btn').click(function() {
+                if (window.confirm("This action will permanantly delete the book, continue?")) {
+                    $.ajax({
+                        type: "POST",
+                        url: "../scripts/removeBook.php",
+                        data: { isbn: $(this).attr('name') }
+                    }).done(function(msg) {
+                        location.reload();
+                    });
+                }
             });
         </script>
 
