@@ -46,7 +46,7 @@
                     echo("    <td>$date</td>");
                     echo("    <td>$numItems</td>");
                     echo("    <td>$value</td>");
-                    echo("    <td><button class=\"order-details-btn\">Details</button><button class=\"remove-order-btn\">Cancel</button></td>");
+                    echo("    <td><button name=\"$orderID\" class=\"order-details-btn\">Details</button><button name=\"$orderID\" class=\"remove-order-btn\">Cancel</button></td>");
                     echo("</tr>");
                     $noOrders = 0;
                 }
@@ -62,9 +62,9 @@
             $('.remove-order-btn').click(function() {
                 //var isbn = $(this).attr('name');
                 $.ajax({
-                    //type: "POST",
-                    //url: "../scripts/removeBookFromCart.php",
-                    //data: { isbn: $(this).attr('name') }
+                    type: "POST",
+                    url: "../scripts/removeOrder.php",
+                    data: { orderID: $(this).attr('name') }
                 }).done(function(msg) {
                     location.reload();
                 });
