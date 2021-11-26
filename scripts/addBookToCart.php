@@ -10,7 +10,9 @@
             $_SESSION['cart'] = array();
         }
 
-        array_push($_SESSION['cart'], $isbn);
+        if (!in_array($isbn, $_SESSION['cart'])) {
+            array_push($_SESSION['cart'], $isbn);
+        }
         //echo implode(" ", $_SESSION['cart']); //temp testing
     }
 ?>

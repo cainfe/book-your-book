@@ -31,7 +31,7 @@
             
             <!-- Populate the book list -->
             <?php
-            if (!isset($_SESSION['cart'])) {
+            if (!isset($_SESSION['cart']) or count($_SESSION['cart']) == 0) {
                 echo("<td>There are no items in the cart.</td>");
             } else {
                 // Connect to the database
