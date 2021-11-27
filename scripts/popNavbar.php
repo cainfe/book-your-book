@@ -19,6 +19,7 @@
         $string .= "    <a class=\"link-no-display navbar-link\" href=\"CustomerFE.php\">Book Shelf</a>";
         $string .= "    <a class=\"link-no-display navbar-link\" href=\"cart.php\">Cart</a>";
         $string .= "    <a class=\"link-no-display navbar-link\" href=\"order.php\">Orders</a>";
+        $string .= "    <a class=\"link-no-display navbar-link\" href=\"authors.php\">Authors</a>";
         if (isset($_SESSION['isAdmin']) AND $_SESSION['isAdmin']) {
             $string .= "<a class=\"link-no-display navbar-link\" href=\"AdminFE.php\">Admin</a>";
         }
@@ -40,6 +41,7 @@
         $string .= "    <a class=\"link-no-display navbar-link\" href=\"pages/CustomerFE.php\">Book Shelf</a>";
         $string .= "    <a class=\"link-no-display navbar-link\" href=\"pages/cart.php\">Cart</a>";
         $string .= "    <a class=\"link-no-display navbar-link\" href=\"pages/order.php\">Orders</a>";
+        $string .= "    <a class=\"link-no-display navbar-link\" href=\"pages/authors.php\">Authors</a>";
         if (isset($_SESSION['isAdmin']) AND $_SESSION['isAdmin']) {
             $string .= "<a class=\"link-no-display navbar-link\" href=\"pages/AdminFE.php\">Admin</a>";
         }

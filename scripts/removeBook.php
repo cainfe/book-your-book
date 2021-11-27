@@ -1,8 +1,4 @@
 <?php
-    if (session_status() == 1) {
-        session_start();
-    }
-    
     // DONT TOUCH
     if (isset($_POST['isbn'])) {
         // Connect to the database
