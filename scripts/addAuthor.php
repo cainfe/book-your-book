@@ -24,9 +24,15 @@
 
     $result = $dbConn->query("INSERT INTO Authors(fName, lName, gender, birthDate, contactID) VALUES('$fname','$lname', '$gender', '$birthday', $contactID);");
 
-    $dbConn->query("INSERT INTO ContactAddress (contactID, address) VALUES($contactID, '$address');");
-    $dbConn->query("INSERT INTO ContactEmail (contactID, email) VALUES($contactID, '$email');");
-    $dbConn->query("INSERT INTO ContactPhone (contactID, phone) VALUES($contactID, $phone);");
+    if ($address != "") {
+        $dbConn->query("INSERT INTO ContactAddress (contactID, address) VALUES($contactID, '$address');");
+    }
+    if ($email != "") {
+        $dbConn->query("INSERT INTO ContactEmail (contactID, email) VALUES($contactID, '$email');");
+    }
+    if ($phone != "") {
+        $dbConn->query("INSERT INTO ContactPhone (contactID, phone) VALUES($contactID, $phone);");
+    }
 
     // Return to previous page.
     header('location:javascript://history.go(-1)');

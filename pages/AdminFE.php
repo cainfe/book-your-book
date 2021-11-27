@@ -130,15 +130,15 @@
                     </div>
                     <div class="form-data">
                         <label>Email</label>
-                        <input type="email" name="email" class="data-input" id="add-author-email-field" required>
+                        <input type="email" name="email" class="data-input" id="add-author-email-field">
                     </div>
                     <div class="form-data">
                         <label>Phone</label>
-                        <input type="text" name="phone" class="data-input" id="add-author-phone-field" required>
+                        <input type="text" name="phone" class="data-input" id="add-author-phone-field">
                     </div>
                     <div class="form-data">
                         <label>Address</label>
-                        <input type="text" name="address" class="data-input" id="add-author-address-field" required>
+                        <input type="text" name="address" class="data-input" id="add-author-address-field">
                     </div>
 
                     <button type="submit" id="btn-submit-author" class="form-submit-btn btn-submit-book">Add</button>
