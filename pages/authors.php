@@ -67,7 +67,7 @@
                     $.ajax({
                         type: "POST",
                         url: "../scripts/removeAuthor.php",
-                        data: { isbn: $(this).attr('name') }
+                        data: { authorID: $(this).attr('name') }
                     }).done(function(msg) {
                         location.reload();
                     });

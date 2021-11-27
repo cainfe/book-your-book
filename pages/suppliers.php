@@ -56,11 +56,11 @@
 
         <script>
             $('.remove-supplier-btn').click(function() {
-                if (window.confirm("This action will permanantly delete the supplier, continue?")) {
+                if (window.confirm("This action will permanantly delete the supplier and its supplied books, continue?")) {
                     $.ajax({
                         type: "POST",
                         url: "../scripts/removeSupplier.php",
-                        data: { isbn: $(this).attr('name') }
+                        data: { supplierID: $(this).attr('name') }
                     }).done(function(msg) {
                         location.reload();
                     });
