@@ -67,7 +67,6 @@
                 }
                 ?>
         </table>
-        <p></p>
         
         <script>
             $('.add-book-btn').click(function() {

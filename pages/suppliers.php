@@ -52,7 +52,6 @@
                 }
                 ?>
         </table>
-        <p></p>
 
         <script>
             $('.remove-supplier-btn').click(function() {

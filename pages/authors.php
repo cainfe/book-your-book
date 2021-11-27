@@ -51,7 +51,7 @@
                     echo("    <td>$birthdate</td>");
                     echo("    <td>");
                     if (isset($_SESSION['isAdmin']) AND $_SESSION['isAdmin']) {
-                        //echo("    <button class=\"add-author-btn\" name=\"$supplierID\" >E</button>");
+                        //echo("    <button class=\"add-author-btn\" name=\"$authorID\" >E</button>");
                         echo("    <button class=\"remove-author-btn\" name=\"$authorID\" >R</button>");
                     }
                     echo("    </td>");
@@ -59,7 +59,6 @@
                 }
                 ?>
         </table>
-        <p></p>
 
         <script>
             $('.remove-author-btn').click(function() {
