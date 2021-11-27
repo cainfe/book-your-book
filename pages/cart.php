@@ -25,7 +25,7 @@
                 <th>Author</th>
                 <th>Supplier</th>
                 <th>Category</th>
-                <th>Reviews</th>
+                <th>Price</th>
                 <th>Options</th>
             </tr>
             
@@ -39,7 +39,7 @@
                 // Connect to the database
                 $dbConn = new PDO('sqlite:../Data.db');
 
-                $result = $dbConn->query("SELECT name, fName, lName, ISBN, title, reviews FROM Books, Authors, BookAuthors, Suppliers
+                $result = $dbConn->query("SELECT name, fName, lName, ISBN, title, price FROM Books, Authors, BookAuthors, Suppliers
                 WHERE BookAuthors.bookID = Books.isbn AND BookAuthors.authorID = Authors.authorID AND Suppliers.supplierID = Books.suppliedBy;");
 
                 foreach($result as $row) {
@@ -50,13 +50,13 @@
                         $authorLName = $row['lName'];
                         $supplier = $row['name'];
                         $category = "none";
-                        $reviews = $row['reviews'];
+                        $price = $row['price'];
                         echo("<tr>");
                         echo("    <td>$title</td>");
                         echo("    <td>$authorFName $authorLName</td>");
                         echo("    <td>$supplier</td>");
                         echo("    <td>$category</td>");
-                        echo("    <td>$reviews</td>");
+                        echo("    <td>$price</td>");
                         echo("    <td><button class=\"remove-book-btn\" name=\"$isbn\">Remove Book</button></td>");
                         echo("</tr>");
                     }

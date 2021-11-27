@@ -39,13 +39,13 @@
                 if ($row['customerID'] == $_SESSION['customerID']) {
                     $orderID = $row['orderID'];
                     $date = $row['date'];
-                    $value = "$0.00";
+                    $value = $dbConn->query("SELECT SUM(price) FROM OrderItems, Books WHERE OrderItems.orderID = $orderID AND OrderItems.bookID = Books.ISBN;")->fetch()[0];;
                     $numItems = $dbConn->query("SELECT COUNT(IDNumber) FROM OrderItems WHERE OrderItems.orderID = $orderID;")->fetch()[0];
                     echo("<tr>");
                     echo("    <td>$orderID</td>");
                     echo("    <td>$date</td>");
                     echo("    <td>$numItems</td>");
-                    echo("    <td>$value</td>");
+                    echo("    <td>\$$value</td>");
                     echo("    <td><button name=\"$orderID\" class=\"order-details-btn\">Details</button><button name=\"$orderID\" class=\"remove-order-btn\">Cancel</button></td>");
                     echo("</tr>");
                     $noOrders = 0;
@@ -60,7 +60,6 @@
         <script>
             // DONT TOUCH! It's beautiful ),:
             $('.remove-order-btn').click(function() {
-                //var isbn = $(this).attr('name');
                 $.ajax({
                     type: "POST",
                     url: "../scripts/removeOrder.php",
