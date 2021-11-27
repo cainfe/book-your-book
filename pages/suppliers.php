@@ -7,7 +7,7 @@
         <link rel="stylesheet" href="..\styles\style.css">
         <link rel="stylesheet" href="..\styles\CustomerFE.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <title>Book Your Book | Authors</title>
+        <title>Book Your Book | Suppliers</title>
     </head>
 
     <body>
@@ -20,15 +20,13 @@
 
         <!--Search bar-->
         <form action="" method="post" class="bar">
-            <input type="text" id="search-authors" placeholder="Search..">
+            <input type="text" id="search-suppliers" placeholder="Search..">
             <button type="submit" name="submit">Search</button>
         </form>
 
         <table id="btable">
             <tr>
-                <th>Author</th>
-                <th>Gender</th>
-                <th>Birthdate</th>
+                <th>Supplier</th>
                 <th>Options</th>
             </tr>
             
@@ -37,22 +35,17 @@
                 // Connect to the database
                 $dbConn = new PDO('sqlite:../Data.db');
 
-                $result = $dbConn->query("SELECT authorID, fName, lName, gender, birthDate FROM Authors;");
+                $result = $dbConn->query("SELECT supplierID, name FROM Suppliers;");
 
                 foreach($result as $row) {
-                    $authorID = $row['authorID'];
-                    $authorFName = $row['fName'];
-                    $authorLName = $row['lName'];
-                    $gender = $row['gender'];
-                    $birthdate = $row['birthDate'];
+                    $supplierID = $row['supplierID'];
+                    $name = $row['name'];
                     echo("<tr>");
-                    echo("    <td>$authorFName $authorLName</td>");
-                    echo("    <td>$gender</td>");
-                    echo("    <td>$birthdate</td>");
+                    echo("    <td>$name</td>");
                     echo("    <td>");
                     if (isset($_SESSION['isAdmin']) AND $_SESSION['isAdmin']) {
-                        //echo("    <button class=\"add-author-btn\" name=\"$supplierID\" >E</button>");
-                        echo("    <button class=\"remove-author-btn\" name=\"$authorID\" >R</button>");
+                        //echo("    <button class=\"add-supplier-btn\" name=\"$supplierID\" >E</button>");
+                        echo("    <button class=\"remove-supplier-btn\" name=\"$supplierID\" >R</button>");
                     }
                     echo("    </td>");
                     echo("</tr>");
@@ -62,11 +55,11 @@
         <p></p>
 
         <script>
-            $('.remove-author-btn').click(function() {
-                if (window.confirm("This action will permanantly delete the author, continue?")) {
+            $('.remove-supplier-btn').click(function() {
+                if (window.confirm("This action will permanantly delete the supplier, continue?")) {
                     $.ajax({
                         type: "POST",
-                        url: "../scripts/removeAuthor.php",
+                        url: "../scripts/removeSupplier.php",
                         data: { isbn: $(this).attr('name') }
                     }).done(function(msg) {
                         location.reload();
