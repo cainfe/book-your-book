@@ -56,12 +56,13 @@
                     echo("    <td>$supplier</td>");
                     echo("    <td>$category</td>");
                     echo("    <td>$reviews</td>");
-                    echo("    <td><button class=\"add-book-btn\" name=\"$isbn\" >+</button>");
+                    echo("    <td>");
+                    echo("    <button class=\"add-book-btn\" name=\"$isbn\" >+</button>");
                     if (isset($_SESSION['isAdmin']) AND $_SESSION['isAdmin']) {
                         //echo("    <button class=\"add-book-btn\" name=\"$isbn\" >E</button>");
                         echo("    <button class=\"remove-book-btn\" name=\"$isbn\" >R</button>");
                     }
-                    echo("</td>");
+                    echo("    </td>");
                     echo("</tr>");
                 }
                 ?>
