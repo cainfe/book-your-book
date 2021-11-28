@@ -55,7 +55,7 @@
                         echo("    <td>$authorFName $authorLName</td>");
                         echo("    <td>$supplier</td>");
                         echo("    <td>$category</td>");
-                        echo("    <td>$price</td>");
+                        echo("    <td>\$$price</td>");
                         echo("    <td><button class=\"remove-book-btn\" name=\"$isbn\">Remove Book</button></td>");
                         echo("</tr>");
                     }
