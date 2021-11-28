@@ -39,6 +39,11 @@
                     echo("<button onclick=\"toggleForm('add-supplier-rep', 1)\">Add supplier representative</button>");
                 }
             ?>
+            <?php 
+                if (isset($_SESSION['isAdmin']) AND $_SESSION['isAdmin']) {
+                    echo("<button onclick=\"toggleForm('add-customer', 1)\">Add customer</button>");
+                }
+            ?>
 
             <!-- popup form - add book -->
             <div class="popup-form container form-container" id="add-book">
@@ -202,6 +207,43 @@
                     </div>
 
                     <button type="submit" id="btn-submit-supplier-rep" class="form-submit-btn btn-submit-book">Add</button>
+                </form>
+            </div>
+            <div class="popup-form container form-container" id="add-customer">
+                <button class="form-close-btn" onclick="toggleForm('add-customer', 0)">x</button>
+                <h2 class="form-title">ADD CUSTOMER</form></h2>
+                <form id="add-customer-form" action="../scripts/addCustomer.php" method="post">
+                    <div class="form-data">
+                        <label>First Name</label>
+                        <input type="text" name="first-name" class="data-input" id="add-customer-fname-field" required>
+                    </div>
+                    <div class="form-data">
+                        <label>Last Name</label>
+                        <input type="text" name="last-name" class="data-input" id="add-customer-lname-field" required>
+                    </div>
+                    <div class="form-data">
+                        <label>Username</label>
+                        <input type="text" name="username" class="data-input" id="add-customer-username-field" required>
+                    </div>
+                   
+                    <div class="form-data">
+                        <label>Password</label>
+                        <input type="text" name="password" class="data-input" id="add-customer-password-field" required>
+                    </div>
+                    <div class="form-data">
+                        <label>Email</label>
+                        <input type="email" name="email" class="data-input" id="add-customer-email-field">
+                    </div>
+                    <div class="form-data">
+                        <label>Phone</label>
+                        <input type="text" name="phone" class="data-input" id="add-customer-phone-field">
+                    </div>
+                    <div class="form-data">
+                        <label>Address</label>
+                        <input type="text" name="address" class="data-input" id="add-customer-address-field">
+                    </div>
+
+                    <button type="submit" id="btn-submit-customer" class="form-submit-btn btn-submit-book">Add</button>
                 </form>
             </div>
         </div>
