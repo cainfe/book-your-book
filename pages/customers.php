@@ -162,7 +162,7 @@
 
 <script>
     $('.edit-customer-btn').click(function() {
-        aID = $(this).attr('name');
+        cID = $(this).attr('name');
         toggleForm("edit-customer", 1);
     });
 </script>
