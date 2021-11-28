@@ -1,6 +1,7 @@
+<!-- Add to Customer Page? -->
+
 <?php
     //Create variables 
-    $search = $_POST["bsearch"];
     $bookinfo = '';
 
     //Connect Database
@@ -10,11 +11,15 @@
     
     //if search box is not empty search for books using text
     if(isset($_POST['submit'])){
-        if(!empty($_POST["bsearch"])){
-            $search = $_POST["bsearch"];
+        if(!empty($_POST['search'])){
+            $search = $_POST['search'];
 
             //Need to add category to query
-            $sql = "SELECT * FROM Books WHERE title OR publicationDate
+            $sql = "SELECT name, fName, lName, ISBN, title, reviews FROM Books, Authors, BookAuthors, Suppliers
+            WHERE BookAuthors.bookID = Books.isbn AND BookAuthors.authorID = Authors.authorID AND Suppliers.supplierID = Books.suppliedBy;"
+            //HELP
+            $sql = "SELECT * FROM Books WHERE title LIKE '%$search% 
+                    OR publicationDate LIKE '%$search%
                     OR reviews LIKE '%$search%'";
 
             $result = $dbConn->query($sql);

@@ -25,7 +25,7 @@
 
         <!--Search bar-->
         <form action="" method="post" class="bar">
-            <input type="text" id="search-books" placeholder="Search..">
+            <input type="text" id="search-books" name="search" placeholder="Search..">
             <button type="submit" name="submit">Search</button>
         </form>
 
@@ -46,6 +46,10 @@
 
                 $result = $dbConn->query("SELECT name, fName, lName, ISBN, title, reviews FROM Books, Authors, BookAuthors, Suppliers
                 WHERE BookAuthors.bookID = Books.isbn AND BookAuthors.authorID = Authors.authorID AND Suppliers.supplierID = Books.suppliedBy;");
+                //Category and a book have 2?
+                /* SELECT name, fName, lName, ISBN, title, reviews, description FROM Books, Authors, BookAuthors, Suppliers, BookCategories, AssignedCategory
+                WHERE BookAuthors.bookID = Books.isbn AND BookAuthors.authorID = Authors.authorID AND Suppliers.supplierID = Books.suppliedBy
+                AND Books.ISBN = AssignedCategory.bookID AND AssignedCategory.categoryCode = BookCategories.code; */
 
                 foreach($result as $row) {
                     $isbn = $row['ISBN'];
@@ -53,7 +57,7 @@
                     $authorFName = $row['fName'];
                     $authorLName = $row['lName'];
                     $supplier = $row['name'];
-                    $category = "none";
+                    $category = "none"; //$row['description'];
                     $reviews = $row['reviews'];
                     echo("<tr>");
                     echo("    <td>$title</td>");
