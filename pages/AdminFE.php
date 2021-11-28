@@ -59,7 +59,7 @@
                             <option disabled selected value></option>
                             <?php
                             $dbConn = new PDO('sqlite:../Data.db');
-                            $result = $dbConn->query("SELECT authorID, fName, lName FROM Authors");
+                            $result = $dbConn->query("SELECT authorID, fName, lName FROM Authors ORDER BY lname;");
 
                             foreach($result as $row) {
                                 $authorID = $row['authorID'];
@@ -76,7 +76,7 @@
                             <option disabled selected value></option>
                             <?php
                             $dbConn = new PDO('sqlite:../Data.db');
-                            $result = $dbConn->query("SELECT supplierID, name FROM Suppliers");
+                            $result = $dbConn->query("SELECT supplierID, name FROM Suppliers ORDER BY name");
 
                             foreach($result as $row) {
                                 $supplierID = $row['supplierID'];
@@ -190,7 +190,7 @@
                             <option disabled selected value></option>
                             <?php
                             $dbConn = new PDO('sqlite:../Data.db');
-                            $result = $dbConn->query("SELECT supplierID, name FROM Suppliers");
+                            $result = $dbConn->query("SELECT supplierID, name FROM Suppliers ORDER BY name;");
 
                             foreach($result as $row) {
                                 $supplierID = $row['supplierID'];
