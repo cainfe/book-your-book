@@ -205,21 +205,6 @@
                 </form>
             </div>
         </div>
-
-        <div class ="container" id="acontainer">
-            <div class="abutton VCustomer">Customers</div>
-            <div class="abutton VOrder">Orders</div>
-            <div class="abutton VBook">Books</div>
-            <div class="abutton VSupplier">Suppliers</div>
-            <div class="abutton VAuthor">Authors</div>
-            <div class="abutton CCustomer">Update Customer Details</div>
-            <div class="abutton CAuthor">Update Author Details</div>
-            <div class="abutton CBook">Update Book Details</div>
-            <div class="abutton RCustomer">Remove Customer</div>
-            <div class="abutton RAuthor">Remove Author</div>
-            <div class="abutton RBook">Remove Book</div>
-            <div class="abutton RSupplier">Remove Supplier</div>
-        </div>
     </body>
 </html>
 
