@@ -46,8 +46,8 @@
 
                 foreach($result as $row) {
                     $customerID = $row['customerID'];
-                    $customerFName = $row['fname'];
-                    $customerLName = $row['lname'];
+                    $customerFName = $row['fName'];
+                    $customerLName = $row['lName'];
                     $contactID = $row['contactID'];
                     $username = $row['username'];
                     $password = $row['password'];
