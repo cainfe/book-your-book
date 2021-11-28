@@ -55,18 +55,18 @@
             }
             ?>
         </table>
-        
-        <script>
-            // DONT TOUCH! It's beautiful ),:
-            $('.remove-order-btn').click(function() {
-                $.ajax({
-                    type: "POST",
-                    url: "../scripts/removeOrder.php",
-                    data: { orderID: $(this).attr('name') }
-                }).done(function(msg) {
-                    location.reload();
-                });
-            });
-        </script>
     </body>
 </html>
+        
+<script>
+    // DONT TOUCH! It's beautiful ),:
+    $('.remove-order-btn').click(function() {
+        $.ajax({
+            type: "POST",
+            url: "../scripts/removeOrder.php",
+            data: { orderID: $(this).attr('name') }
+        }).done(function(msg) {
+            location.reload();
+        });
+    });
+</script>

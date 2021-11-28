@@ -66,35 +66,33 @@
                 }
                 ?>
         </table>
-        
-        <script>
-            $('.add-book-btn').click(function() {
-                $.ajax({
-                    type: "POST",
-                    url: "../scripts/addBookToCart.php",
-                    data: { isbn: $(this).attr('name') }
-                }).done(function(msg) {
-                    if (window.confirm("Book has been succefully added. Go to cart?")){
-                        location.assign("cart.php");
-                    }
-                });
-            });
-        </script>
-
-        <script>
-            $('.remove-book-btn').click(function() {
-                if (window.confirm("This action will permanantly delete the book, continue?")) {
-                    $.ajax({
-                        type: "POST",
-                        url: "../scripts/removeBook.php",
-                        data: { isbn: $(this).attr('name') }
-                    }).done(function(msg) {
-                        location.reload();
-                    });
-                }
-            });
-        </script>
-
     </body>
 </html>
+        
+<script>
+    $('.add-book-btn').click(function() {
+        $.ajax({
+            type: "POST",
+            url: "../scripts/addBookToCart.php",
+            data: { isbn: $(this).attr('name') }
+        }).done(function(msg) {
+            if (window.confirm("Book has been succefully added. Go to cart?")){
+                location.assign("cart.php");
+            }
+        });
+    });
+</script>
 
+<script>
+    $('.remove-book-btn').click(function() {
+        if (window.confirm("This action will permanantly delete the book, continue?")) {
+            $.ajax({
+                type: "POST",
+                url: "../scripts/removeBook.php",
+                data: { isbn: $(this).attr('name') }
+            }).done(function(msg) {
+                location.reload();
+            });
+        }
+    });
+</script>

@@ -58,21 +58,20 @@
                 }
                 ?>
         </table>
-
-        <script>
-            $('.remove-author-btn').click(function() {
-                if (window.confirm("This action will permanantly delete the author, continue?")) {
-                    $.ajax({
-                        type: "POST",
-                        url: "../scripts/removeAuthor.php",
-                        data: { authorID: $(this).attr('name') }
-                    }).done(function(msg) {
-                        location.reload();
-                    });
-                }
-            });
-        </script>
-
     </body>
 </html>
+
+<script>
+    $('.remove-author-btn').click(function() {
+        if (window.confirm("This action will permanantly delete the author, continue?")) {
+            $.ajax({
+                type: "POST",
+                url: "../scripts/removeAuthor.php",
+                data: { authorID: $(this).attr('name') }
+            }).done(function(msg) {
+                location.reload();
+            });
+        }
+    });
+</script>
 

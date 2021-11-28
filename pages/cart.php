@@ -63,22 +63,22 @@
             }
             ?>
         </table>
-        
-        <script>
-            $('.remove-book-btn').click(function() {
-                //var isbn = $(this).attr('name');
-                $.ajax({
-                    type: "POST",
-                    url: "../scripts/removeBookFromCart.php",
-                    data: { isbn: $(this).attr('name') }
-                }).done(function(msg) {
-                    location.reload();
-                });
-            });
-        </script>
 
         <!--Order summary
             Place Order 
             View order-->
     </body>
 </html>
+        
+<script>
+    $('.remove-book-btn').click(function() {
+        //var isbn = $(this).attr('name');
+        $.ajax({
+            type: "POST",
+            url: "../scripts/removeBookFromCart.php",
+            data: { isbn: $(this).attr('name') }
+        }).done(function(msg) {
+            location.reload();
+        });
+    });
+</script>
