@@ -46,8 +46,8 @@
 
                 foreach($result as $row) {
                     $customerID = $row['customerID'];
-                    $customerFName = $row['fName'];
-                    $customerLName = $row['lName'];
+                    $customerFName = $row['fname'];
+                    $customerLName = $row['lname'];
                     $contactID = $row['contactID'];
                     $username = $row['username'];
                     $password = $row['password'];
@@ -110,7 +110,7 @@
         <div class="popup-form container form-container" id="edit-customer">
                 <button class="form-close-btn" onclick="toggleForm('edit-customer', 0)">x</button>
                 <h2 class="form-title">EDIT CUSTOMER</form></h2>
-                <<form id="add-customer-form" action="../scripts/addCustomer.php" method="post">
+                <form id="add-customer-form" action="../scripts/addCustomer.php" method="post">
                 <div class="form-data">
                     <label>First Name</label>
                     <input type="text" name="first-name" class="data-input" id="add-customer-fname-field" required>
