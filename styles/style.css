@@ -242,12 +242,10 @@ table th
 form .category-checkbox {
 	height: 15px;
 	width: 15px;
-	display: inline-block;
 }
 
-form .category-label {
-	margin: 1px;
-	padding: 1px;
+form #category-input {
+	height: 100%;
 }
 
 .popup-form {
