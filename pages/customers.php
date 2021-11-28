@@ -179,7 +179,7 @@
     $.ajax({
             type: "POST",
             url: "../scripts/editCustomer.php",
-            data: { aID, fname, lname, gender, birthDate, email, address, phone }
+            data: { cID, fname, lname, username, password, email, address, phone }
         }).done(function(msg) {
             location.reload();
         });
