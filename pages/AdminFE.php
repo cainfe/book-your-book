@@ -204,18 +204,6 @@
                     <button type="submit" id="btn-submit-supplier-rep" class="form-submit-btn btn-submit-book">Add</button>
                 </form>
             </div>
-
-            <script>
-                function toggleForm(form, show) 
-                {
-                    var x = document.getElementById(form);
-                    if (show) {
-                        x.style.display = "block";
-                    } else {
-                        x.style.display = "none";
-                    }
-                }
-            </script>
         </div>
 
         <div class ="container" id="acontainer">
@@ -234,3 +222,16 @@
         </div>
     </body>
 </html>
+
+<script>
+    function toggleForm(form, show) 
+    {
+        var x = document.getElementById(form);
+        if (show) {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
+        }
+    }
+</script>
+</div>

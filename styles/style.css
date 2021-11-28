@@ -59,6 +59,39 @@ tr {
 	color: blue;
 }
 
+.bar {
+    overflow: hidden;
+    /*background-color: darkblue;*/
+}
+
+.bar input[type=text] {
+    float: right;
+    font-size: 25px;
+    width: 30%;
+}
+
+/*Browse bar*/
+.bbar {
+    display: grid;
+    overflow: hidden;
+    background-color: darkblue;
+    padding: 5px;
+    gap: 2px;
+    grid-template-areas: 
+    'title publication category reviews';
+}
+
+.bbar a {
+    float: left;
+    display: block;
+    padding: 14px 16px;
+    font-size: 15px;
+    text-align: center;
+    background-color: rgb(116, 226, 230);
+    color: black;
+    border: darkblue;
+}
+
 #index-pg-hdr {
 	font-size: 60px;
     font-family: 'Gentium Book Basic', serif;
