@@ -248,6 +248,11 @@ form #category-input {
 	height: 100%;
 }
 
+form .category-label {
+	display: inline-block;
+	width: 50%;
+}
+
 .popup-form {
 	display: none;
 }

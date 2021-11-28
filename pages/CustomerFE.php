@@ -96,7 +96,7 @@
                         <option disabled selected value></option>
                         <?php
                         $dbConn = new PDO('sqlite:../Data.db');
-                        $result = $dbConn->query("SELECT authorID, fName, lName FROM Authors ORDER BY lName ORDER BY lName");
+                        $result = $dbConn->query("SELECT authorID, fName, lName FROM Authors ORDER BY lName");
 
                         foreach($result as $row) {
                             $authorID = $row['authorID'];
@@ -116,7 +116,7 @@
                     foreach($result as $row) {
                         $code = $row['code'];
                         $description = $row['description'];
-                        echo("<label class=\"category-label\"><input type=\"checkbox\" id=\"$description\" name=\"$description\" class=\"category-checkbox\" value=\"$code\"> $description</label><br>");
+                        echo("<label class=\"category-label\"><input type=\"checkbox\" id=\"$description\" name=\"$code\" class=\"category-checkbox\" value=\"$code\"> $description</label>");
                     }
                     ?>
                 </div>

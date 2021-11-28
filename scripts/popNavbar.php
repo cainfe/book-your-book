@@ -22,7 +22,8 @@
         $string .= "    <a class=\"link-no-display navbar-link\" href=\"authors.php\">Authors</a>";
         $string .= "    <a class=\"link-no-display navbar-link\" href=\"suppliers.php\">Suppliers</a>";
         if (isset($_SESSION['isAdmin']) AND $_SESSION['isAdmin']) {
-            $string .= "<a class=\"link-no-display navbar-link\" href=\"AdminFE.php\">Admin</a>";
+            $string .= "    <a class=\"link-no-display navbar-link\" href=\"customers.php\">Customers</a>";
+            $string .= "    <a class=\"link-no-display navbar-link\" href=\"AdminFE.php\">Admin</a>";
         }
         if ($username == "Login") {
             // If user is not logged in
@@ -45,7 +46,8 @@
         $string .= "    <a class=\"link-no-display navbar-link\" href=\"pages/authors.php\">Authors</a>";
         $string .= "    <a class=\"link-no-display navbar-link\" href=\"pages/suppliers.php\">Suppliers</a>";
         if (isset($_SESSION['isAdmin']) AND $_SESSION['isAdmin']) {
-            $string .= "<a class=\"link-no-display navbar-link\" href=\"pages/AdminFE.php\">Admin</a>";
+            $string .= "    <a class=\"link-no-display navbar-link\" href=\"pages/customers.php\">Customers</a>";
+            $string .= "    <a class=\"link-no-display navbar-link\" href=\"pages/AdminFE.php\">Admin</a>";
         }
         if ($username == "Login") {
             // If user is not logged in

@@ -75,6 +75,19 @@
                             ?>
                         </select>
                     </div>
+                    <div class="form-data" id="category-input">
+                        <label>Categories</label><br>
+                        <?php
+                        $dbConn = new PDO('sqlite:../Data.db');
+                        $result = $dbConn->query("SELECT code, description FROM BookCategories ORDER BY description");
+
+                        foreach($result as $row) {
+                            $code = $row['code'];
+                            $description = $row['description'];
+                            echo("<label class=\"category-label\"><input type=\"checkbox\" id=\"$description\" name=\"$code\" class=\"category-checkbox\" value=\"$code\"> $description</label>");
+                        }
+                        ?>
+                    </div>
                     <div class="form-data">
                         <label>Supplier</label><br>
                         <select type="text" name="supplier" class="data-input" id="add-book-supplier-field" required>
