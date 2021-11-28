@@ -50,7 +50,7 @@
                     echo("    <td>$birthdate</td>");
                     echo("    <td>");
                     if (isset($_SESSION['isAdmin']) AND $_SESSION['isAdmin']) {
-                        //echo("    <button class=\"add-author-btn\" name=\"$authorID\" >E</button>");
+                        echo("    <button class=\"edit-author-btn\" name=\"$authorID\" >E</button>");
                         echo("    <button class=\"remove-author-btn\" name=\"$authorID\" >R</button>");
                     }
                     echo("    </td>");
@@ -58,8 +58,90 @@
                 }
                 ?>
         </table>
+
+        <!-- popup form - edit author -->
+        <div class="popup-form container form-container" id="edit-author">
+                <button class="form-close-btn" onclick="toggleForm('edit-author', 0)">x</button>
+                <h2 class="form-title">EDIT AUTHOR</form></h2>
+                <form id="edit-author-form">
+                    <div class="form-data">
+                        <label>First Name</label>
+                        <input type="text" name="first-name" class="data-input" id="edit-author-fname-field">
+                    </div>
+                    <div class="form-data">
+                        <label>Last Name</label>
+                        <input type="text" name="last-name" class="data-input" id="edit-author-lname-field">
+                    </div>
+                    <div class="form-data">
+                        <label>Gender</label><br>
+                        <select type="text" name="gender" class="data-input" id="edit-author-gender-field">
+                            <option disabled selected value></option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                        </select>
+                    </div>
+                    <div class="form-data">
+                        <label>Birthday</label>
+                        <input type="date" name="birthday" class="data-input" id="edit-author-birth-date-field">
+                    </div>
+                    <div class="form-data">
+                        <label>Email</label>
+                        <input type="email" name="email" class="data-input" id="edit-author-email-field">
+                    </div>
+                    <div class="form-data">
+                        <label>Phone</label>
+                        <input type="text" name="phone" class="data-input" id="edit-author-phone-field">
+                    </div>
+                    <div class="form-data">
+                        <label>Address</label>
+                        <input type="text" name="address" class="data-input" id="edit-author-address-field">
+                    </div>
+
+                    <button type="submit" id="btn-submit-author-edit" class="form-submit-btn edit-author-submit-btn">Confirm</button>
+                </form>
+            </div>
     </body>
 </html>
+
+<script>
+    var sID = 0;
+
+    function toggleForm(form, show) 
+    {
+        var x = document.getElementById(form);
+        if (show) {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
+        }
+    }
+</script>
+
+<script>
+    $('.edit-author-btn').click(function() {
+        aID = $(this).attr('name');
+        toggleForm("edit-author", 1);
+    });
+</script>
+
+<script>
+    $('.edit-author-submit-btn').click(function() {
+    var fname = document.getElementById("edit-author-fname-field").value;
+    var lname = document.getElementById("edit-author-lname-field").value;
+    var gender = document.getElementById("edit-author-gender-field").value;
+    var birthDate = document.getElementById("edit-author-birth-date-field").value;
+    var email = document.getElementById("edit-author-email-field").value;
+    var address = document.getElementById("edit-author-address-field").value;
+    var phone = document.getElementById("edit-author-phone-field").value;
+    $.ajax({
+            type: "POST",
+            url: "../scripts/editAuthor.php",
+            data: { aID, fname, lname, gender, birthDate, email, address, phone }
+        }).done(function(msg) {
+            location.reload();
+        });
+    });
+</script>
 
 <script>
     $('.remove-author-btn').click(function() {

@@ -62,7 +62,7 @@
                     <input type="text" name="name" class="data-input" id="edit-supplier-name-field" required>
                 </div>
                 
-                <button type="submit" id="btn-submit-edit-supplier" class="form-submit-btn edit-supplier-submit-btn">Add</button>
+                <button type="submit" id="btn-submit-edit-supplier" class="form-submit-btn edit-supplier-submit-btn">Confirm</button>
             </form>
         </div>
     </body>
