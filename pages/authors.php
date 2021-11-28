@@ -16,6 +16,12 @@
 
         <!-- Header and homepage link-->
         <h1 id="index-pg-hdr"><a class="link-no-display" href="../index.php">Book Your Book</a></h1>
+        
+        <?php 
+            if (isset($_SESSION['isAdmin']) AND $_SESSION['isAdmin']) {
+                echo("<button onclick=\"toggleForm('add-author', 1)\">Add author</button>");
+            }
+        ?>
 
         <!--Search bar-->
         <form action="" method="post" class="bar">
@@ -58,6 +64,48 @@
                 }
                 ?>
         </table>
+
+        <!-- popup form - add author -->
+        <div class="popup-form container form-container" id="add-author">
+            <button class="form-close-btn" onclick="toggleForm('add-author', 0)">x</button>
+            <h2 class="form-title">ADD AUTHOR</form></h2>
+            <form id="add-author-form" action="../scripts/addAuthor.php" method="post">
+                <div class="form-data">
+                    <label>First Name</label>
+                    <input type="text" name="first-name" class="data-input" id="add-author-fname-field" required>
+                </div>
+                <div class="form-data">
+                    <label>Last Name</label>
+                    <input type="text" name="last-name" class="data-input" id="add-author-lname-field" required>
+                </div>
+                <div class="form-data">
+                    <label>Gender</label><br>
+                    <select type="text" name="gender" class="data-input" id="add-author-gender-field" required>
+                        <option disabled selected value></option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                    </select>
+                </div>
+                <div class="form-data">
+                    <label>Birthday</label>
+                    <input type="date" name="birthday" class="data-input" id="add-author-birthday-date-field" required>
+                </div>
+                <div class="form-data">
+                    <label>Email</label>
+                    <input type="email" name="email" class="data-input" id="add-author-email-field">
+                </div>
+                <div class="form-data">
+                    <label>Phone</label>
+                    <input type="text" name="phone" class="data-input" id="add-author-phone-field">
+                </div>
+                <div class="form-data">
+                    <label>Address</label>
+                    <input type="text" name="address" class="data-input" id="add-author-address-field">
+                </div>
+
+                <button type="submit" id="btn-submit-author" class="form-submit-btn btn-submit-book">Add</button>
+            </form>
+        </div>
 
         <!-- popup form - edit author -->
         <div class="popup-form container form-container" id="edit-author">

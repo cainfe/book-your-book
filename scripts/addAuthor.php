@@ -1,4 +1,8 @@
 <?php
+    if (session_status()) {
+        session_start();
+    }
+
     $fname = $_POST['first-name'];
     $lname = $_POST['last-name'];
     $gender = $_POST['gender'];
@@ -35,6 +39,10 @@
     }
 
     // Return to previous page.
-    header('location:javascript://history.go(-1)');
+    $previous = "javascript:history.go(-1)";
+    if(isset($_SERVER['HTTP_REFERER'])) {
+        $previous = $_SERVER['HTTP_REFERER'];
+    }
+    header("location:$previous");
     exit;
 ?>

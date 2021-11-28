@@ -1,4 +1,8 @@
 <?php
+    if (session_status()) {
+        session_start();
+    }
+
     $isbn = $_POST['isbn'];
     $title = $_POST['title'];
     $authorID = $_POST['author'];                     // Returns the ID of the Author
@@ -17,6 +21,10 @@
     $result = $dbConn->query("INSERT INTO BookAuthors(authorID, bookID) VALUES($authorID, $isbn);");
 
     // Return to previous page.
-    header('location:javascript://history.go(-1)');
+    $previous = "javascript:history.go(-1)";
+    if(isset($_SERVER['HTTP_REFERER'])) {
+        $previous = $_SERVER['HTTP_REFERER'];
+    }
+    header("location:$previous");
     exit;
 ?>

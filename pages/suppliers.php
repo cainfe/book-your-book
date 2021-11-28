@@ -16,6 +16,12 @@
 
         <!-- Header and homepage link-->
         <h1 id="index-pg-hdr"><a class="link-no-display" href="../index.php">Book Your Book</a></h1>
+    
+        <?php 
+            if (isset($_SESSION['isAdmin']) AND $_SESSION['isAdmin']) {
+                echo("<button onclick=\"toggleForm('add-supplier', 1)\">Add supplier</button>");
+            }
+        ?>
 
         <!--Search bar-->
         <form action="" method="post" class="bar">
@@ -51,6 +57,20 @@
                 }
                 ?>
         </table>
+            
+        <!-- popup form - add supplier -->
+        <div class="popup-form container form-container" id="add-supplier">
+            <button class="form-close-btn" onclick="toggleForm('add-supplier', 0)">x</button>
+            <h2 class="form-title">ADD SUPPLIER</form></h2>
+            <form id="add-supplier-from" action="../scripts/addSupplier.php" method="post">
+                <div class="form-data">
+                    <label>Name</label>
+                    <input type="text" name="name" class="data-input" id="add-supplier-name-field" required>
+                </div>
+
+                <button type="submit" id="btn-submit-author" class="form-submit-btn btn-submit-book">Add</button>
+            </form>
+        </div>
             
         <!-- popup form - edit supplier -->
         <div class="popup-form container form-container" id="edit-supplier-form">
