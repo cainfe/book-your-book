@@ -15,13 +15,15 @@
             $search = $_POST['search'];
 
             //Need to add category to query
-            $sql = "SELECT name, fName, lName, ISBN, title, reviews FROM Books, Authors, BookAuthors, Suppliers
-            WHERE BookAuthors.bookID = Books.isbn AND BookAuthors.authorID = Authors.authorID AND Suppliers.supplierID = Books.suppliedBy ORDER BY title;"
-            //HELP
-            $sql = "SELECT * FROM Books WHERE title LIKE '%$search% 
-                    OR publicationDate LIKE '%$search%
-                    OR reviews LIKE '%$search%'";
-
+            $sql = "SELECT distinct name, fName, lName, ISBN, title, reviews 
+            FROM Books, Authors, BookAuthors, Suppliers, BookCategories, AssignedCategory
+            WHERE BookAuthors.bookID = Books.isbn AND BookAuthors.authorID = Authors.authorID 
+            AND Suppliers.supplierID = Books.suppliedBy AND Books.ISBN = AssignedCategory.bookID
+            AND AssignedCategory.categoryCode = BookCategories.code
+            AND (Books.title LIKE '%$search%' OR Books.reviews LIKE '%$search%'
+            OR Authors.fname LIKE '%$search%' OR Authors.lname LIKE '%$search%'
+            OR Suppliers.name LIKE '%$search%' OR BookCategories.description LIKE '%$search%');"
+            
             $result = $dbConn->query($sql);
             $bookinfo = $result->fetch_assoc()
         }

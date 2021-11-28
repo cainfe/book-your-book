@@ -107,7 +107,7 @@
                         ?>
                     </select>
                 </div>
-                <div class="form-data">
+                <div class="form-data" id="category-input">
                     <label>Categories</label><br>
                     <?php
                     $dbConn = new PDO('sqlite:../Data.db');
