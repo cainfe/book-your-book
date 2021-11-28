@@ -32,7 +32,6 @@ button:active{
 tr {
     font-size: 20px;
     color: var(--secondaryColor);
-
 }
 
 .container {
@@ -41,7 +40,6 @@ tr {
 	padding: 30px;
 	box-shadow: 0 0 8px rgba(0,0,0,0.1);
 }
-
 .user-sensitive {
 	display: none;
 }
@@ -239,6 +237,11 @@ table th
 .data-input:focus {
 	outline: none;
 	border-color: var(--primaryColor);
+}
+
+form .category-checkbox {
+	height: 15px;
+	width: 15px;
 }
 
 .popup-form {

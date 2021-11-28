@@ -24,11 +24,7 @@
 
     $_SESSION['cart'] = array();
 
-    // Return to previous page.
-    $previous = "javascript:history.go(-1)";
-    if(isset($_SERVER['HTTP_REFERER'])) {
-        $previous = $_SERVER['HTTP_REFERER'];
-    }
-    header("location:$previous");
+    // Go to orders page.
+    header("location:../pages/Order.php");
     exit;
 ?>
