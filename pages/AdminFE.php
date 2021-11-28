@@ -59,7 +59,7 @@
                             <option disabled selected value></option>
                             <?php
                             $dbConn = new PDO('sqlite:../Data.db');
-                            $result = $dbConn->query("SELECT authorID, fName, lName FROM Authors");
+                            $result = $dbConn->query("SELECT authorID, fName, lName FROM Authors ORDER BY lname;");
 
                             foreach($result as $row) {
                                 $authorID = $row['authorID'];
@@ -76,7 +76,7 @@
                             <option disabled selected value></option>
                             <?php
                             $dbConn = new PDO('sqlite:../Data.db');
-                            $result = $dbConn->query("SELECT supplierID, name FROM Suppliers");
+                            $result = $dbConn->query("SELECT supplierID, name FROM Suppliers ORDER BY name");
 
                             foreach($result as $row) {
                                 $supplierID = $row['supplierID'];
@@ -190,7 +190,7 @@
                             <option disabled selected value></option>
                             <?php
                             $dbConn = new PDO('sqlite:../Data.db');
-                            $result = $dbConn->query("SELECT supplierID, name FROM Suppliers");
+                            $result = $dbConn->query("SELECT supplierID, name FROM Suppliers ORDER BY name;");
 
                             foreach($result as $row) {
                                 $supplierID = $row['supplierID'];
@@ -204,21 +204,6 @@
                     <button type="submit" id="btn-submit-supplier-rep" class="form-submit-btn btn-submit-book">Add</button>
                 </form>
             </div>
-        </div>
-
-        <div class ="container" id="acontainer">
-            <div class="abutton VCustomer">Customers</div>
-            <div class="abutton VOrder">Orders</div>
-            <div class="abutton VBook">Books</div>
-            <div class="abutton VSupplier">Suppliers</div>
-            <div class="abutton VAuthor">Authors</div>
-            <div class="abutton CCustomer">Update Customer Details</div>
-            <div class="abutton CAuthor">Update Author Details</div>
-            <div class="abutton CBook">Update Book Details</div>
-            <div class="abutton RCustomer">Remove Customer</div>
-            <div class="abutton RAuthor">Remove Author</div>
-            <div class="abutton RBook">Remove Book</div>
-            <div class="abutton RSupplier">Remove Supplier</div>
         </div>
     </body>
 </html>

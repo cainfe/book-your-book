@@ -40,7 +40,7 @@
                 // Connect to the database
                 $dbConn = new PDO('sqlite:../Data.db');
 
-                $result = $dbConn->query("SELECT supplierID, name FROM Suppliers;");
+                $result = $dbConn->query("SELECT supplierID, name FROM Suppliers ORDER BY name;");
 
                 foreach($result as $row) {
                     $supplierID = $row['supplierID'];

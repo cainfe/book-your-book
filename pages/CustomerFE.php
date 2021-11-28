@@ -45,7 +45,7 @@
                 $dbConn = new PDO('sqlite:../Data.db');
 
                 $result = $dbConn->query("SELECT name, fName, lName, ISBN, title, reviews FROM Books, Authors, BookAuthors, Suppliers
-                WHERE BookAuthors.bookID = Books.isbn AND BookAuthors.authorID = Authors.authorID AND Suppliers.supplierID = Books.suppliedBy;");
+                WHERE BookAuthors.bookID = Books.isbn AND BookAuthors.authorID = Authors.authorID AND Suppliers.supplierID = Books.suppliedBy ORDER BY title;");
                 //Category and a book have 2?
                 /* SELECT name, fName, lName, ISBN, title, reviews, description FROM Books, Authors, BookAuthors, Suppliers, BookCategories, AssignedCategory
                 WHERE BookAuthors.bookID = Books.isbn AND BookAuthors.authorID = Authors.authorID AND Suppliers.supplierID = Books.suppliedBy
@@ -96,7 +96,7 @@
                         <option disabled selected value></option>
                         <?php
                         $dbConn = new PDO('sqlite:../Data.db');
-                        $result = $dbConn->query("SELECT authorID, fName, lName FROM Authors");
+                        $result = $dbConn->query("SELECT authorID, fName, lName FROM Authors ORDER BY lName ORDER BY lName");
 
                         foreach($result as $row) {
                             $authorID = $row['authorID'];
@@ -108,12 +108,25 @@
                     </select>
                 </div>
                 <div class="form-data">
+                    <label>Categories</label><br>
+                    <?php
+                    $dbConn = new PDO('sqlite:../Data.db');
+                    $result = $dbConn->query("SELECT code, description FROM BookCategories ORDER BY description");
+
+                    foreach($result as $row) {
+                        $code = $row['code'];
+                        $description = $row['description'];
+                        echo("<label class=\"category-label\"><input type=\"checkbox\" id=\"$description\" name=\"$description\" class=\"category-checkbox\" value=\"$code\"> $description</label><br>");
+                    }
+                    ?>
+                </div>
+                <div class="form-data">
                     <label>Supplier</label><br>
                     <select type="text" name="supplier" class="data-input" id="add-book-supplier-field" required>
                         <option disabled selected value></option>
                         <?php
                         $dbConn = new PDO('sqlite:../Data.db');
-                        $result = $dbConn->query("SELECT supplierID, name FROM Suppliers");
+                        $result = $dbConn->query("SELECT supplierID, name FROM Suppliers ORDER BY name");
 
                         foreach($result as $row) {
                             $supplierID = $row['supplierID'];

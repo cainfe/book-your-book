@@ -42,7 +42,7 @@
                 // Connect to the database
                 $dbConn = new PDO('sqlite:../Data.db');
 
-                $result = $dbConn->query("SELECT authorID, fName, lName, gender, birthDate FROM Authors;");
+                $result = $dbConn->query("SELECT authorID, fName, lName, gender, birthDate FROM Authors ORDER BY lname;");
 
                 foreach($result as $row) {
                     $authorID = $row['authorID'];
