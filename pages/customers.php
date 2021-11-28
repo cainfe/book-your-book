@@ -87,7 +87,7 @@
                 </div>
                 <div class="form-data">
                     <label>Password</label>
-                    <input type="text" name="last-name" class="data-input" id="add-customer-password-field" required>
+                    <input type="text" name="password" class="data-input" id="add-customer-password-field" required>
                 </div>
                 <div class="form-data">
                     <label>Email</label>
