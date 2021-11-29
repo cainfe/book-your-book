@@ -23,7 +23,7 @@
         }
     }
     echo("<script> alert(\"" . implode(" ", $categoryID) . "\");</script>");
-
+/*
     //Check if we need $result here when site is working. Also check if we need % before and after variables.
     $result = $dbConn->query("INSERT INTO Books(ISBN, title, publicationDate, price, suppliedBy, reviews) 
                             VALUES($isbn, '$title', '$publicationDate', $price, $supplierID, $reviews);");
@@ -37,4 +37,5 @@
     }
     header("location:$previous");
     exit;
+*/
 ?>
