@@ -10,25 +10,22 @@
     $publicationDate = $_POST['publication-date'];
     $price = $_POST['price'];
     $reviews = $_POST['reviews'];
-    $categoryID = array();
+    $categoryID = $_POST['categories'];
 
     // Connect to the database
     $dbConn = new PDO('sqlite:../Data.db');
 
-    $result = $dbConn->query("SELECT code FROM BookCategories;");
-
-    foreach($result as $row) {
-        if (isset($_POST["$row"])) {
-            array_push($categoryID, $row);
-        }
-    }
-    echo("<script> alert(\"" . implode(" ", $categoryID) . "\");</script>");
-
     //Check if we need $result here when site is working. Also check if we need % before and after variables.
-    $result = $dbConn->query("INSERT INTO Books(ISBN, title, publicationDate, price, suppliedBy, reviews) 
+    $dbConn->query("INSERT INTO Books(ISBN, title, publicationDate, price, suppliedBy, reviews) 
                             VALUES($isbn, '$title', '$publicationDate', $price, $supplierID, $reviews);");
 
-    $result = $dbConn->query("INSERT INTO BookAuthors(authorID, bookID) VALUES($authorID, $isbn);");
+    $dbConn->query("INSERT INTO BookAuthors(authorID, bookID) VALUES($authorID, $isbn);");
+
+    //echo("<script>alert(" . implode($categoryID) . ")</script>");
+
+    foreach($categoryID as $row) {
+        $dbConn->query("INSERT INTO AssignedCategory (bookID, categoryCode) VALUES ($isbn, $row);");
+    }
 
     // Return to previous page.
     $previous = "javascript:history.go(-1)";

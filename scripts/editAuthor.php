@@ -1,9 +1,9 @@
 <?php
-customerID = $_POST['cID'];
+$authorID = $_POST['aID'];
 $fname = $_POST['fname'];
 $lname = $_POST['lname'];
-$username = $_POST['username'];
-$password = $_POST['password'];
+$gender = $_POST['gender'];
+$birthDate = $_POST['birthDate'];
 $email = $_POST['email'];
 $address = $_POST['address'];
 $phone = $_POST['phone'];
@@ -12,16 +12,16 @@ $phone = $_POST['phone'];
 // Connect to the database
 $dbConn = new PDO('sqlite:../Data.db');
 
-$contactID = $dbConn->query("SELECT contactID FROM Customers WHERE Customers.customerID = customerID;")->fetch()[0];
+$contactID = $dbConn->query("SELECT contactID FROM Authors WHERE Authors.authorID = $authorID;")->fetch()[0];
 
 if ($fname != '') {
-    $dbConn->query("UPDATE Customers SET fname = '$fname' WHERE Customers.customerID  = $customerID;");
+    $dbConn->query("UPDATE Authors SET fname = '$fname' WHERE Authors.authorID = $authorID;");
 }
 if ($lname != '') {
-    $dbConn->query("UPDATE Customers SET lname = '$lname' WHERE Customers.customerID  = $customerID;");
+    $dbConn->query("UPDATE Authors SET lname = '$lname' WHERE Authors.authorID = $authorID;");
 }
-if (username != '') {
-    $dbConn->query("UPDATE Customers SET username = $username WHERE Customers.customerID  = $customerID;");
+if ($gender != '') {
+    $dbConn->query("UPDATE Authors SET gender = '$gender' WHERE Authors.authorID = $authorID;");
 }
 if ($email != '') {
     $dbConn->query("UPDATE ContactEmail SET email = '$email' WHERE ContactEmail.contactID = $contactID;");
@@ -32,7 +32,7 @@ if ($address != '') {
 if ($phone != '') {
     $dbConn->query("UPDATE ContactPhone SET phone = '$phone' WHERE ContactPhone.contactID = $contactID;");
 }
-if ($password != '') {
-    $dbConn->query("UPDATE Customers SET password = $password WHERECustomers.customerID  = $customerID;");
+if ($birthDate != '') {
+    $dbConn->query("UPDATE Authors SET birthDate = '$birthDate' WHERE Authors.authorID = $authorID;");
 }
 ?>

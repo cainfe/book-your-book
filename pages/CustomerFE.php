@@ -116,7 +116,7 @@
                     foreach($result as $row) {
                         $code = $row['code'];
                         $description = $row['description'];
-                        echo("<label class=\"category-label\"><input type=\"checkbox\" id=\"$description\" name=\"$code\" class=\"category-checkbox\" value=\"$code\"> $description</label>");
+                        echo("<label class=\"category-label\"><input type=\"checkbox\" id=\"$description\" name=\"categories[]\" class=\"category-checkbox\" value=\"$code\"> $description</label>");
                     }
                     ?>
                 </div>
