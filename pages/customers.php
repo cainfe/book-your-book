@@ -75,11 +75,11 @@
             <form id="add-customer-form" action="../scripts/addCustomer.php" method="post">
                 <div class="form-data">
                     <label>First Name</label>
-                    <input type="text" name="first-name" class="data-input" id="add-customer-fname-field" required>
+                    <input type="text" name="fname" class="data-input" id="add-customer-fname-field" required>
                 </div>
                 <div class="form-data">
                     <label>Last Name</label>
-                    <input type="text" name="last-name" class="data-input" id="add-customer-lname-field" required>
+                    <input type="text" name="lname" class="data-input" id="add-customer-lname-field" required>
                 </div>
                 <div class="form-data">
                     <label>Username</label>
@@ -87,7 +87,7 @@
                 </div>
                 <div class="form-data">
                     <label>Password</label>
-                    <input type="text" name="password" class="data-input" id="add-customer-password-field" required>
+                    <input type="password" name="password" class="data-input" id="add-customer-password-field" required>
                 </div>
                 <div class="form-data">
                     <label>Email</label>
@@ -110,37 +110,37 @@
         <div class="popup-form container form-container" id="edit-customer">
                 <button class="form-close-btn" onclick="toggleForm('edit-customer', 0)">x</button>
                 <h2 class="form-title">EDIT CUSTOMER</form></h2>
-                <form id="add-customer-form" action="../scripts/addCustomer.php" method="post">
+                <form id="add-customer-form">
                 <div class="form-data">
                     <label>First Name</label>
-                    <input type="text" name="first-name" class="data-input" id="add-customer-fname-field" required>
+                    <input type="text" name="fname" class="data-input" id="edit-customer-fname-field">
                 </div>
                 <div class="form-data">
                     <label>Last Name</label>
-                    <input type="text" name="last-name" class="data-input" id="add-customer-lname-field" required>
+                    <input type="text" name="lname" class="data-input" id="edit-customer-lname-field">
                 </div>
                 <div class="form-data">
                     <label>Username</label>
-                    <input type="text" name="username" class="data-input" id="add-customer-username-field" required>
+                    <input type="text" name="username" class="data-input" id="edit-customer-username-field">
                 </div>
                 <div class="form-data">
                     <label>Password</label>
-                    <input type="text" name="last-name" class="data-input" id="add-customer-password-field" required>
+                    <input type="password" name="password" class="data-input" id="edit-customer-password-field">
                 </div>
                 <div class="form-data">
                     <label>Email</label>
-                    <input type="email" name="email" class="data-input" id="add-customer-email-field">
+                    <input type="email" name="email" class="data-input" id="edit-customer-email-field">
                 </div>
                 <div class="form-data">
                     <label>Phone</label>
-                    <input type="text" name="phone" class="data-input" id="add-customer-phone-field">
+                    <input type="text" name="phone" class="data-input" id="edit-customer-phone-field">
                 </div>
                 <div class="form-data">
                     <label>Address</label>
-                    <input type="text" name="address" class="data-input" id="add-customer-address-field">
+                    <input type="text" name="address" class="data-input" id="edit-customer-address-field">
                 </div>
 
-                <button type="submit" id="btn-submit-customer" class="form-submit-btn btn-submit-book">Add</button>
+                <button type="submit" id="btn-submit-customer" class="form-submit-btn btn-submit-book .edit-customer-submit-btn">Confirm</button>
             </form>
             </div>
     </body>

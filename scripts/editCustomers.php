@@ -15,13 +15,13 @@ $dbConn = new PDO('sqlite:../Data.db');
 $contactID = $dbConn->query("SELECT contactID FROM Customers WHERE Customers.customerID = $customerID;")->fetch()[0];
 
 if ($fname != '') {
-    $dbConn->query("UPDATE Customers SET fname = '$fname'WHERE Customers.customerID = $customerID;");
+    $dbConn->query("UPDATE Customers SET fName = '$fname'WHERE Customers.customerID = $customerID;");
 }
 if ($lname != '') {
-    $dbConn->query("UPDATE Customers SET lname = '$lname' WHERE Customers.customerID = $customerID;");
+    $dbConn->query("UPDATE Customers SET lName = '$lname' WHERE Customers.customerID = $customerID;");
 }
 if ($gender != '') {
-    $dbConn->query("UPDATE Customers SET username = $username 'WHERE Customers.customerID = $customerID;");
+    $dbConn->query("UPDATE Customers SET username = '$username' WHERE Customers.customerID = $customerID;");
 }
 if ($email != '') {
     $dbConn->query("UPDATE ContactEmail SET email = '$email' WHERE ContactEmail.contactID = $contactID;");
