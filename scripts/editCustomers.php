@@ -12,7 +12,7 @@ $phone = $_POST['phone'];
 // Connect to the database
 $dbConn = new PDO('sqlite:../Data.db');
 
-$contactID = $dbConn->query("SELECT contactID FROM Customers WHERE Customers.customerID = $contactID;")->fetch()[0];
+$contactID = $dbConn->query("SELECT contactID FROM Customers WHERE Customers.customerID = $customerID;")->fetch()[0];
 
 if ($fname != '') {
     $dbConn->query("UPDATE Customers SET fName = '$fname'WHERE Customers.customerID = $customerID;");
