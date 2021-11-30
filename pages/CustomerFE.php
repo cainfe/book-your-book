@@ -53,17 +53,13 @@
                     AND AssignedCategory.categoryCode = BookCategories.code
                     AND (Books.title LIKE '%$search%' OR Books.reviews LIKE '%$search%'
                     OR Authors.fname LIKE '%$search%' OR Authors.lname LIKE '%$search%'
-                    OR Suppliers.name LIKE '%$search%' OR BookCategories.description LIKE '%$search%');");
+                    OR Suppliers.name LIKE '%$search%' OR BookCategories.description LIKE '%$search%')
+                    GROUP BY ISBN;");
                     unset($_SESSION['ba']);
                 } else {
                     $result = $dbConn->query("SELECT name, fName, lName, ISBN, title, reviews FROM Books, Authors, BookAuthors, Suppliers
                     WHERE BookAuthors.bookID = Books.isbn AND BookAuthors.authorID = Authors.authorID AND Suppliers.supplierID = Books.suppliedBy ORDER BY title;");
                 }
-
-                //Category and a book have 2?
-                /* SELECT name, fName, lName, ISBN, title, reviews, description FROM Books, Authors, BookAuthors, Suppliers, BookCategories, AssignedCategory
-                WHERE BookAuthors.bookID = Books.isbn AND BookAuthors.authorID = Authors.authorID AND Suppliers.supplierID = Books.suppliedBy
-                AND Books.ISBN = AssignedCategory.bookID AND AssignedCategory.categoryCode = BookCategories.code; */
 
                 foreach($result as $row) {
                     $isbn = $row['ISBN'];
