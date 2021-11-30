@@ -52,18 +52,20 @@
                     $username = $row['username'];
                     $password = $row['password'];
 
-                    echo("<tr>");
-                    echo("    <td>$customerFName $customerLName</td>");
-                    echo("<td>$username</td>");
-                    echo("<td>$password</td>");
+                    if ($_SESSION['customerID'] != 0 AND ($_SESSION['customerID'] == $customerID OR $_SESSION['isAdmin'])) {
+                        echo("<tr>");
+                        echo("    <td>$customerFName $customerLName</td>");
+                        echo("<td>$username</td>");
+                        echo("<td>$password</td>");
 
-                    echo("    <td>");
-                    if (isset($_SESSION['isAdmin']) AND $_SESSION['isAdmin']) {
-                        echo("    <button class=\"edit-customer-btn\" name=\"$customerID\" >E</button>");
-                        echo("    <button class=\"remove-customer-btn\" name=\"$customerID\" >R</button>");
+                        echo("    <td>");
+                        if (isset($_SESSION['isAdmin']) AND $_SESSION['isAdmin']) {
+                            echo("    <button class=\"edit-customer-btn\" name=\"$customerID\" >E</button>");
+                            echo("    <button class=\"remove-customer-btn\" name=\"$customerID\" >R</button>");
+                        }
+                        echo("    </td>");
+                        echo("</tr>");
                     }
-                    echo("    </td>");
-                    echo("</tr>");
                 }
                 ?>
         </table>
