@@ -6,7 +6,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Gentium+Book+Basic&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="..\styles\style.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <title>Book Your Book | Customer Account</title>
+        <title>Book Your Book | Book Shelf</title>
     </head>
 
     <body>
@@ -25,8 +25,8 @@
 
         <!--Search bar-->
         <form action="" method="post" class="bar">
-            <input type="text" id="search-books" name="search" placeholder="Search..">
-            <button type="submit" name="submit">Search</button>
+            <input type="text" id="books-search-bar" name="search" placeholder="Search..">
+            <button type="submit" id="book-search-submit-btn" name="submit">Search</button>
         </form>
 
         <table id="btable">
@@ -43,9 +43,25 @@
             <?php
                 // Connect to the database
                 $dbConn = new PDO('sqlite:../Data.db');
+                
+                if (isset($_SESSION["ba"])) {
+                    $search = $_SESSION["ba"];
+                    $result = $dbConn->query("SELECT name, fName, lName, ISBN, title, reviews 
+                    FROM Books, Authors, BookAuthors, Suppliers, BookCategories, AssignedCategory
+                    WHERE BookAuthors.bookID = Books.isbn AND BookAuthors.authorID = Authors.authorID 
+                    AND Suppliers.supplierID = Books.suppliedBy AND Books.ISBN = AssignedCategory.bookID
+                    AND AssignedCategory.categoryCode = BookCategories.code
+                    AND (Books.title LIKE '%$search%' OR Books.reviews LIKE '%$search%'
+                    OR Authors.fname LIKE '%$search%' OR Authors.lname LIKE '%$search%'
+                    OR Suppliers.name LIKE '%$search%' OR BookCategories.description LIKE '%$search%');");
+                    unset($_SESSION['ba']);
+                    echo("Neither here");
+                } else {
+                    $result = $dbConn->query("SELECT name, fName, lName, ISBN, title, reviews FROM Books, Authors, BookAuthors, Suppliers
+                    WHERE BookAuthors.bookID = Books.isbn AND BookAuthors.authorID = Authors.authorID AND Suppliers.supplierID = Books.suppliedBy ORDER BY title;");
+                    echo("Nor there");
+                }
 
-                $result = $dbConn->query("SELECT name, fName, lName, ISBN, title, reviews FROM Books, Authors, BookAuthors, Suppliers
-                WHERE BookAuthors.bookID = Books.isbn AND BookAuthors.authorID = Authors.authorID AND Suppliers.supplierID = Books.suppliedBy ORDER BY title;");
                 //Category and a book have 2?
                 /* SELECT name, fName, lName, ISBN, title, reviews, description FROM Books, Authors, BookAuthors, Suppliers, BookCategories, AssignedCategory
                 WHERE BookAuthors.bookID = Books.isbn AND BookAuthors.authorID = Authors.authorID AND Suppliers.supplierID = Books.suppliedBy
@@ -68,7 +84,7 @@
                     echo("    <td>");
                     echo("    <button class=\"add-book-btn\" name=\"$isbn\" >+</button>");
                     if (isset($_SESSION['isAdmin']) AND $_SESSION['isAdmin']) {
-                        //echo("    <button class=\"add-book-btn\" name=\"$isbn\" >E</button>");
+                        //echo("    <button class=\"edit-book-btn\" name=\"$isbn\" >E</button>");
                         echo("    <button class=\"remove-book-btn\" name=\"$isbn\" >R</button>");
                     }
                     echo("    </td>");
@@ -166,6 +182,20 @@
             x.style.display = "none";
         }
     }
+</script>
+
+<script>
+    $('#book-search-submit-btn').click(function() {
+        var searchTerm = document.getElementById("books-search-bar").value;
+        $.ajax({
+            type: "POST",
+            url: "../scripts/searchBook.php",
+            data: { searchTerm }
+        }).done(function(msg) {
+            $_SESSION['bookSearchTerm'] = msg;
+            location.reload();
+        });
+    });
 </script>
         
 <script>

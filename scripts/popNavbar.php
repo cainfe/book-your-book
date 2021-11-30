@@ -1,5 +1,7 @@
 <?php
-    session_start();
+    if (session_status() == 1) {
+        session_start();
+    }
     
     // if the session is empty (no one has logged in) then set the sessions 
     // 'userID' to 0.
