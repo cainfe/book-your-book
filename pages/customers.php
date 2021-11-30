@@ -140,14 +140,14 @@
                     <input type="text" name="address" class="data-input" id="edit-customer-address-field">
                 </div>
 
-                <button type="submit" id="btn-submit-customer" class="form-submit-btn btn-submit-book .edit-customer-submit-btn">Confirm</button>
+                <button type="submit" id="btn-submit-customer" class="form-submit-btn btn-submit-book edit-customer-submit-btn">Confirm</button>
             </form>
             </div>
     </body>
 </html>
 
 <script>
-    var sID = 0;
+    var cID = 0;
 
     function toggleForm(form, show) 
     {
@@ -178,7 +178,7 @@
     var phone = document.getElementById("edit-customer-phone-field").value;
     $.ajax({
             type: "POST",
-            url: "../scripts/editCustomer.php",
+            url: "../scripts/editCustomers.php",
             data: { cID, fname, lname, username, password, email, address, phone }
         }).done(function(msg) {
             location.reload();
