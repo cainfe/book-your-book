@@ -24,10 +24,10 @@
         ?>
 
         <!--Search bar-->
-        <form action="" method="post" class="bar">
+        <!--form action="" method="post" class="bar">
             <input type="text" id="search-suppliers" placeholder="Search..">
             <button type="submit" name="submit">Search</button>
-        </form>
+        </form-->
 
         <table id="btable">
             <tr>

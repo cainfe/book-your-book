@@ -24,16 +24,16 @@
         ?>
 
         <!--Search bar-->
-        <form action="" method="post" class="bar">
+        <!--form action="" method="post" class="bar">
             <input type="text" id="search-customer" placeholder="Search..">
             <button type="submit" name="submit">Search</button>
-        </form>
+        </form-->
 
         <table id="btable">
             <tr>
                 <th>Customer</th>
-                <th>username</th>
-                <th> password</th>
+                <th>Username</th>
+                <th>Password</th>
                 <th>Options</th>
             </tr>
             
