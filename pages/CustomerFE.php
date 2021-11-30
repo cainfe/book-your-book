@@ -24,7 +24,7 @@
         ?>
 
         <!--Search bar-->
-        <form action="" method="post" class="bar">
+        <form class="bar">
             <input type="text" id="books-search-bar" name="search" placeholder="Search..">
             <button type="submit" id="book-search-submit-btn" name="submit">Search</button>
         </form>
@@ -55,11 +55,9 @@
                     OR Authors.fname LIKE '%$search%' OR Authors.lname LIKE '%$search%'
                     OR Suppliers.name LIKE '%$search%' OR BookCategories.description LIKE '%$search%');");
                     unset($_SESSION['ba']);
-                    echo("Neither here");
                 } else {
                     $result = $dbConn->query("SELECT name, fName, lName, ISBN, title, reviews FROM Books, Authors, BookAuthors, Suppliers
                     WHERE BookAuthors.bookID = Books.isbn AND BookAuthors.authorID = Authors.authorID AND Suppliers.supplierID = Books.suppliedBy ORDER BY title;");
-                    echo("Nor there");
                 }
 
                 //Category and a book have 2?
@@ -73,18 +71,22 @@
                     $authorFName = $row['fName'];
                     $authorLName = $row['lName'];
                     $supplier = $row['name'];
-                    $category = "none"; //$row['description'];
+                    $category = $dbConn->query("SELECT description FROM BookCategories, AssignedCategory WHERE $isbn = AssignedCategory.bookID AND AssignedCategory.categoryCode = BookCategories.code");
                     $reviews = $row['reviews'];
                     echo("<tr>");
                     echo("    <td>$title</td>");
                     echo("    <td>$authorFName $authorLName</td>");
                     echo("    <td>$supplier</td>");
-                    echo("    <td>$category</td>");
+                    echo("    <td>");
+                    foreach($category as $name) {
+                        echo($name['description'] . ", ");
+                    }
+                    echo("    </td>");
                     echo("    <td>$reviews</td>");
                     echo("    <td>");
                     echo("    <button class=\"add-book-btn\" name=\"$isbn\" >+</button>");
                     if (isset($_SESSION['isAdmin']) AND $_SESSION['isAdmin']) {
-                        //echo("    <button class=\"edit-book-btn\" name=\"$isbn\" >E</button>");
+                        echo("    <button class=\"edit-book-btn\" name=\"$isbn\" >E</button>");
                         echo("    <button class=\"remove-book-btn\" name=\"$isbn\" >R</button>");
                     }
                     echo("    </td>");
@@ -168,11 +170,88 @@
                 <button type="submit" id="btn-submit-book" class="form-submit-btn btn-submit-book">Add</button>
             </form>
         </div>
+        <!-- popup form - edit book -->
+        <div class="popup-form container form-container" id="edit-book">
+            <button class="form-close-btn" onclick="toggleForm('edit-book', 0)">x</button>
+            <h2 class="form-title">EDIT BOOK</form></h2>
+            <form id="edit-book">
+                <div class="form-data">
+                    <label>ISBN</label>
+                    <input type="text" name="isbn" class="data-input" id="edit-book-isbn-field">
+                </div>
+                <div class="form-data">
+                    <label>Title</label>
+                    <input type="text" name="title" class="data-input" id="edit-book-title-field">
+                </div>
+                <div class="form-data">
+                    <label>Author</label><br>
+                    <select type="text" name="author" class="data-input" id="edit-book-author-field">
+                        <option disabled selected value></option>
+                        <?php
+                        $dbConn = new PDO('sqlite:../Data.db');
+                        $result = $dbConn->query("SELECT authorID, fName, lName FROM Authors ORDER BY lName");
+
+                        foreach($result as $row) {
+                            $authorID = $row['authorID'];
+                            $fName = $row['fName'];
+                            $lName = $row['lName'];
+                            echo("<option value=\"$authorID\">$fName $lName</option>");
+                        }
+                        ?>
+                    </select>
+                </div>
+                <div class="form-data" id="category-input">
+                    <label>Categories</label><br>
+                    <?php
+                    $dbConn = new PDO('sqlite:../Data.db');
+                    $result = $dbConn->query("SELECT code, description FROM BookCategories ORDER BY description");
+
+                    foreach($result as $row) {
+                        $code = $row['code'];
+                        $description = $row['description'];
+                        echo("<label class=\"category-label\"><input type=\"checkbox\" id=\"$description\" name=\"categories[]\" class=\"category-checkbox\" value=\"$code\"> $description</label>");
+                    }
+                    ?>
+                </div>
+                <div class="form-data">
+                    <label>Supplier</label><br>
+                    <select type="text" name="supplier" class="data-input" id="edit-book-supplier-field">
+                        <option disabled selected value></option>
+                        <?php
+                        $dbConn = new PDO('sqlite:../Data.db');
+                        $result = $dbConn->query("SELECT supplierID, name FROM Suppliers ORDER BY name");
+
+                        foreach($result as $row) {
+                            $supplierID = $row['supplierID'];
+                            $name = $row['name'];
+                            echo("<option value=\"$supplierID\">$name</option>");
+                        }
+                        ?>
+                    </select>
+                </div>
+                <div class="form-data">
+                    <label>Publication Date</label>
+                    <input type="date" name="publication-date" class="data-input" id="edit-book-publication-date-field">
+                </div>
+                <div class="form-data">
+                    <label>Price</label>
+                    <input type="number" step="any" name="price" class="data-input" id="edit-book-price-field">
+                </div>
+                <div class="form-data">
+                    <label>Reviews</label>
+                    <input type="number" min="0" max="5" step="any" name="reviews" class="data-input" id="edit-book-reviews-field">
+                </div>
+
+                <button type="submit" id="btn-submit-book-edit" class="form-submit-btn edit-book-submit-btn">Confirm</button>
+            </form>
+        </div>
 
     </body>
 </html>
 
 <script>
+    var oldIsbn = 0;
+
     function toggleForm(form, show) 
     {
         var x = document.getElementById(form);
@@ -182,6 +261,40 @@
             x.style.display = "none";
         }
     }
+</script>
+
+<script>
+    $('.edit-book-btn').click(function() {
+        oldIsbn = $(this).attr('name');
+        toggleForm("edit-book", 1);
+    });
+</script>
+
+<script>
+    $('#btn-submit-book-edit').click(function() {
+    var isbn = document.getElementById("edit-book-isbn-field").value;
+    var title = document.getElementById("edit-book-title-field").value;
+    var authorID = document.getElementById("edit-book-author-field").value;
+    var supplierID = document.getElementById("edit-book-supplier-field").value;
+    var publicationDate = document.getElementById("edit-book-publication-date-field").value;
+    var price = document.getElementById("edit-book-price-field").value;
+    var reviews = document.getElementById("edit-book-reviews-field").value;
+    var categoryID = document.getElementsByName("categories[]");
+    var categoryIDs = [];
+    for (var i = 0; categoryID[i]; ++i) {
+        if (categoryID[i].checked) {
+            categoryIDs.push(categoryID[i].value);
+        }
+    }
+    categoryIDs = JSON.stringify(categoryIDs);
+    $.ajax({
+            type: "POST",
+            url: "../scripts/editBook.php",
+            data: { oldIsbn, isbn, title, authorID, supplierID, publicationDate, price, reviews, categoryIDs }
+        }).done(function(msg) {
+            location.reload();
+        });
+    });
 </script>
 
 <script>
