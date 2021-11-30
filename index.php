@@ -16,5 +16,9 @@
         <!-- Header and homepage link-->
         <h1 id="index-pg-hdr"><a class="link-no-display" href="index.php">Book Your Book</a></h1>
 
+        <br>
+        <br>
+        <h2>Welcome to our book store!</h2>
+
     </body>
 </html>
