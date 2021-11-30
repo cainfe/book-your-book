@@ -5,7 +5,7 @@
 
     $oldIsbn = $_POST['oldIsbn'];
     $isbn = $_POST['isbn'];
-    $title = $_POST['title'];
+    $title = str_replace("'", "''", $_POST['title']);
     $authorID = $_POST['authorID'];
     $supplierID = $_POST['supplierID'];
     $publicationDate = $_POST['publicationDate'];

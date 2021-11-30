@@ -4,7 +4,7 @@
     }
 
     $isbn = $_POST['isbn'];
-    $title = $_POST['title'];
+    $title = str_replace("'", "''", $_POST['title']);
     $authorID = $_POST['author'];                     // Returns the ID of the Author
     $supplierID = $_POST['supplier'];                 // Returns the ID of the publisher
     $publicationDate = $_POST['publication-date'];
@@ -19,7 +19,7 @@
     $dbConn->query("INSERT INTO Books(ISBN, title, publicationDate, price, suppliedBy, reviews) 
                             VALUES($isbn, '$title', '$publicationDate', $price, $supplierID, $reviews);");
 
-    $dbConn->query("INSERT INTO BookAuthors(authorID, bookID) VALUES($authorID, $isbn);");
+    $dbConn->query("INSERT INTO BookAuthors (authorID, bookID) VALUES($authorID, $isbn);");
 
     //echo("<script>alert(" . implode($categoryID) . ")</script>");
 

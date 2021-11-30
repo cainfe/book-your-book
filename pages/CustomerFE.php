@@ -71,7 +71,7 @@
                     $authorFName = $row['fName'];
                     $authorLName = $row['lName'];
                     $supplier = $row['name'];
-                    $category = $dbConn->query("SELECT description FROM BookCategories, AssignedCategory WHERE $isbn = AssignedCategory.bookID AND AssignedCategory.categoryCode = BookCategories.code");
+                    $category = $dbConn->query("SELECT description FROM BookCategories, AssignedCategory WHERE $isbn = AssignedCategory.bookID AND AssignedCategory.categoryCode = BookCategories.code ORDER BY description");
                     $reviews = $row['reviews'];
                     echo("<tr>");
                     echo("    <td>$title</td>");
