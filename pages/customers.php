@@ -57,10 +57,9 @@
                         echo("    <td>$customerFName $customerLName</td>");
                         echo("<td>$username</td>");
                         echo("<td>$password</td>");
-
                         echo("    <td>");
+                        echo("    <button class=\"edit-customer-btn\" name=\"$customerID\" >E</button>");
                         if (isset($_SESSION['isAdmin']) AND $_SESSION['isAdmin']) {
-                            echo("    <button class=\"edit-customer-btn\" name=\"$customerID\" >E</button>");
                             echo("    <button class=\"remove-customer-btn\" name=\"$customerID\" >R</button>");
                         }
                         echo("    </td>");
