@@ -1,0 +1,274 @@
+/*
+Proposed Color Scheme
+#f7f7f7
+#3b0944
+#5f1854
+#1abb9c
+*/
+
+:root {
+	--primaryColor: #f7f7f7;
+	--secondaryColor: #3b0944;
+	--thirdColor: #5f1854;
+	--fourthColor: #1abb9c;
+}
+
+html {
+    font-size: 10px;
+    background-color: var(--primaryColor);
+    color: var(--secondaryColor);
+}
+
+button {
+	background-color: var(--fourthColor);
+	border-radius: 5px;
+}
+
+button:active{
+	outline: none;
+	border-color: var(--thirdColor);
+}
+
+tr {
+    font-size: 20px;
+    color: var(--secondaryColor);
+}
+
+.container {
+	margin-top: -20px;
+	background: var(--fourthColor);
+	padding: 30px;
+	box-shadow: 0 0 8px rgba(0,0,0,0.1);
+}
+.user-sensitive {
+	display: none;
+}
+
+.back-button {
+	right: 10px;
+}
+
+.link-no-display {
+	color: inherit;
+	text-decoration: inherit;
+}
+
+.link-no-change:visited {
+	color: blue;
+}
+
+.bar {
+    overflow: hidden;
+    /*background-color: darkblue;*/
+}
+
+.bar input[type=text] {
+    float: right;
+    font-size: 25px;
+    width: 30%;
+}
+
+/*Browse bar*/
+.bbar {
+    display: grid;
+    overflow: hidden;
+    background-color: darkblue;
+    padding: 5px;
+    gap: 2px;
+    grid-template-areas: 
+    'title publication category reviews';
+}
+
+.bbar a {
+    float: left;
+    display: block;
+    padding: 14px 16px;
+    font-size: 15px;
+    text-align: center;
+    background-color: rgb(116, 226, 230);
+    color: black;
+    border: darkblue;
+}
+
+#index-pg-hdr {
+	font-size: 60px;
+    font-family: 'Gentium Book Basic', serif;
+	text-align: center;
+
+	margin: 0;
+	padding: 40px 0;
+	/* text-shadow: 3px 3px 1px black; */
+}
+
+#smaller-header {
+	font-size: 40px;
+    font-family: 'Gentium Book Basic', serif;
+	text-align: center;
+	margin: 0;
+	padding: 10px 0 0 0;
+	border-bottom: 1px solid var(--secondaryColor);
+}
+
+#books-search-bar {
+	margin: 0px 10px 10px 0px;
+}
+
+#submit-cart-btn {
+	float: right;
+	margin: 0px 10px 10px 0px;
+}
+
+/* ------------------------ Table ---------------------------- */
+table
+{
+    border-collapse: collapse;
+    width: 100%;
+}
+
+table td, table th
+{
+    padding: 8px;
+    border: 1px darkblue;
+}
+
+table tr:nth-child(even)
+{
+    background-color: #f2f2f2;
+}
+
+table tr:hover
+{
+    background-color: #ddd;
+}
+
+table th
+{
+    font-size: 25px;
+    padding: 12px;
+    text-align: center;
+    background-color: rgb(116, 226, 230);
+    color: black;
+}
+/* --------------------- End Table --------------------------- */
+
+/* ------------------- Navigation bar ------------------------ */
+.nav-bar {
+	background-color: var(--thirdColor);
+	overflow: hidden;
+}
+
+.navbar-link {
+	display: block;
+	font-size: 12px;
+	float: left;
+	color: var(--primaryColor);
+	background-color: var(--secondaryColor);
+	margin: 0 1px 0 0;
+	padding: 8px;
+}
+
+.navbar-user {
+	float: right;
+	margin: 0 0 0 1px;
+}
+.navbar-join {
+	float: right;
+	margin: 0 0 0 1px;
+}
+/* --------------- End Navigation bar ------------------------ */
+
+/* ---------------------- Forms ------------------------------ */
+.form-container {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	text-align: center;
+}
+
+.form-close-btn {
+	background:none;
+	border:none;
+	outline:none;
+	position: absolute;
+	right: 20px;
+	top: 15px;
+	font-size: 18px;
+	cursor: pointer;
+}
+
+.form-container .form-data {
+	height: 45px;
+	width: 100%;
+	margin: 40px 0;
+	width: 420px;
+	text-align: left;
+}
+
+.form-data label {
+	font-size: 18px;
+}
+
+.form-data input {
+	height: 100%;
+	width: 100%;
+	font-size: 16px;
+	border: 2px solid var(--thirdColor);
+	border-radius: 5px;
+}
+
+.form-data select {
+	height: 102%;
+	width: 102%;
+	font-size: 16px;
+	border: 2px solid var(--thirdColor);
+	border-radius: 5px;
+}
+
+.form-submit-btn, .form-cancel-btn {
+	padding: 10px 21px;
+	margin: 10px 0 0 0;
+}
+
+.form-submit-btn:active, .form-cancel-btn:active {
+	outline: none;
+}
+
+.data-input:focus {
+	outline: none;
+	border-color: var(--primaryColor);
+}
+
+form .category-checkbox {
+	height: 15px;
+	width: 15px;
+}
+
+form #category-input {
+	height: 100%;
+}
+
+form .category-label {
+	display: inline-block;
+	width: 50%;
+}
+
+.popup-form {
+	display: none;
+}
+
+/* -------------------- End Forms ---------------------------- */
+
+/* -------------- Log in / sign up form ---------------------- */
+#signup-form {
+	padding: 0 20px 20px 10px;
+}
+
+#login-signup-link {
+	font-size: 12px;
+}
+
+#login-signup-link a:visited {
+	color: blue;
+}
+/* ------------- End log in / sign up form ------------------- */
