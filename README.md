@@ -1,7 +1,7 @@
 # book-your-book
 
 ## Description
-Book Your Book is a web platform that allows its users to purchase books from a library
+Book Your Book is a web platform that allows its users to view and purchase books from an online collection.
 
 ## Key Features
 1. **User Registration and Login:** Users can create their own personal accounts, allowing them to track their orders and save their cart
